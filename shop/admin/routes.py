@@ -4,12 +4,15 @@ from .forms import RegistrationForm,LoginForm,ContactForm,SellForm
 from .models import User,Contact,Sell
 import os
 import smtplib
+
 from shop.products.models import Addproduct,Brand,Category
 from shop.customers.models import CustomerOrder,reqpart,Battery,feedback
 from datetime import date
 from datetime import datetime
 from datetime import timedelta
 from flask_login import LoginManager, login_required, login_user, logout_user
+
+
 
 @app.route('/adminorders')
 
@@ -56,9 +59,8 @@ def make_session_permanent():
     app.permanent_session_lifetime = timedelta(minutes=5)
 
 
-@app.route('/')
-def landingpage():
-    return redirect('admin')
+
+
 @app.route('/admin')
 def admin():
     if 'email' not in session:
@@ -94,32 +96,24 @@ def category():
 def register():
     form = RegistrationForm(request.form)
     if request.method=="POST" and form.validate():
-        hash_password=brcypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(name=form.name.data,username=form.username.data, email=form.email.data,
-                   password=hash_password)
-        db.session.add(user)
-        db.session.commit()
-        '''
-        server= smtplib.SMTP("smtp.gmail.com",587)
-        server.starttls()
-        server.login("Sparematenoreply@gmail.com","Sparemate@123")
-
-        message="Admin registration complete"
-        emails=['androgeek123@gmail.com',form.email.data,'skarjigi98@gmail.com']
-        server.sendmail("Sparematenoreply@gmail.com",emails,message)
-        '''
 
 
+        try:
+            hash_password=brcypt.generate_password_hash(form.password.data).decode('utf-8')
+            user = User(name=form.name.data,username=form.username.data, email=form.email.data,
+            password=hash_password)
+            db.session.add(user)
+            db.session.commit()
+            flash(f'Welcome {form.username.data} Thanks for registering.Please proceed with login','success')
+            return redirect(url_for('login')) 
+
+     
 
 
+        except Exception:
 
 
-
-
-
-        flash(f'Welcome {form.username.data} Thanks for registering.Please proceed with login','success')
-
-        return redirect(url_for('login'))  
+            flash(f"email already exists in system",'danger')
     return render_template('admin/register.html', form=form,title="Registeration pages")
 # add routes for other forms
 
