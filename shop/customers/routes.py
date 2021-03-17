@@ -15,6 +15,9 @@ import requests
 
 
 
+
+
+
 @app.route('/customer/register', methods=['GET','POST'])
 def customer_register():
     brands= Brand.query.join(Addproduct,(Brand.id==Addproduct.brand_id)).all()
