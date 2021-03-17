@@ -245,11 +245,6 @@ def req_part():
     return render_template('customer/reqpart.html', form=form,brands=brands,categories=categories)
 
 
-
-
-
-
-
 @app.route('/feedback',methods=['GET','POST'])
 def feed_back():
     brands= Brand.query.join(Addproduct,(Brand.id==Addproduct.brand_id)).all()
@@ -278,7 +273,7 @@ def install_services():
         db.session.commit()
         return redirect('product_page')
 
-    return render_template('customer/Install.html', form=form,brands=brands,categories=categories)
+    return render_template('customer/install.html', form=form,brands=brands,categories=categories)
 
 @app.route('/Privacy',methods=['GET','POST'])
 def privacy_policy():
