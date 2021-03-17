@@ -211,10 +211,7 @@ transition: all 250ms ease-in-out 0s;
               {% endfor %}
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about"><font color="#e5e4e2">About Us</a></font>
-          </li>
-          
+         
          
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><font color="#e5e4e2">
@@ -289,14 +286,10 @@ transition: all 250ms ease-in-out 0s;
         <div class="widget no-box">
         <h5 class="widget-title">Quick Links<span></span></h5>
         <ul class="thumbnail-widget">
+       
+       
         <li>
-        <div class="thumb-content"><a href="#.">Get Started</a></div>	
-        </li>
-        <li>
-        <div class="thumb-content"><a href="#.">Partners</a></div>	
-        </li>
-        <li>
-        <div class="thumb-content"><a href="#.">Installation policy</a></div>	
+        <div class="thumb-content"><a href="{{url_for('install_policy')}}">Installation policy</a></div>	
         </li>
         <li>
         <div class="thumb-content"><a href="#.">Return policy</a></div>	
@@ -305,18 +298,17 @@ transition: all 250ms ease-in-out 0s;
         <div class="thumb-content"><a href="#.">Become a seller</a></div>	
         </li>
         <li>
-        <div class="thumb-content"><a href="#.">Complaints</a></div>	
+        <div class="thumb-content"><a href="{{url_for('feed_back')}}">Feedback</a></div>	
         </li>
         <li>
-        <div class="thumb-content"><a href="#.">About</a></div>	
+        <div class="thumb-content"><a href="{{url_for('privacy_policy')}}">Privacy Policy</a></div>	
         </li>
         </ul>
         </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-3">
         <div class="widget no-box">
-        <p>Subscribe to our mailing list.</p>
-        <a class="btn" href="#." target="_blank">Register Now</a>
+       
         </div>
         </div>
         
