@@ -1,0 +1,172 @@
+{% extends 'layout.html' %}
+{% block body %}
+{% include '_messages.html'%}
+<style>
+    @media 
+    only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px)  {
+    
+        /* Force table to not be like tables anymore */
+        table, thead, tbody, th, td, tr { 
+            display: block; 
+        }
+        
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr { 
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+        
+        tr { border: 1px solid #ccc;border-radius: 10px;}
+        
+        td { 
+            /* Behave  like a "row" */
+            border: none;
+            border-bottom: 1px solid #eee; 
+            position:relative;
+            text-align: center;
+            margin-left: 0px;
+        }
+        
+        td:before { 
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: 6px;
+            left: 6px;
+            width: 45%; 
+            padding-right: 10px; 
+            white-space: nowrap;
+        }
+        
+        /*
+        Label the data
+        */
+        td:nth-of-type(1):before { content: "Sr"; color:white; }
+        td:nth-of-type(2):before { content: "Image"; color:white;}
+        td:nth-of-type(3):before { content: "Name"; color:white;}
+        td:nth-of-type(4):before { content: "Color"; color:white;}
+        td:nth-of-type(5):before { content: "Price";color:white;}
+        td:nth-of-type(6):before { content: "Availability"; color:white;}
+        td:nth-of-type(7):before { content: "Quantity"; color:white;}
+        td:nth-of-type(8):before { content: "Discount"; color:white;}
+        td:nth-of-type(9):before { content: "Subtotal"; color:white;}
+        td:nth-of-type(10):before { content: "Update"; color:white;}
+        td:nth-of-type(11):before { content: "Delete"; color:white;}
+      
+        
+    }
+   
+    td,th{
+        color: #e5e4e2;
+    }
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .tx{
+        font-size:16px;
+    }
+    .tx1{
+        font-size:16px;
+    }
+    .clearcart{
+        float:right;
+    }
+    h5{
+        color: #e5e4e2;
+    }
+</style>
+<body>
+<br>
+<br>
+<br>
+
+<h1 class="text-center"><font color="#e5e4e2">Your Cart <i class="fa fa-shopping-cart" style="font-size:36px"></i></h1></font>
+<br>
+<div class="container">
+    <h5>Product quanity is limited to 10 per product </h5>
+<br>
+    <div class="row">
+     
+        <table class="table table-sm">
+            <thead>
+                <th>Sr</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Color</th>
+                <th>Price</th>
+                <th>Availability</th>
+                <th>Quantity</th>
+                <th>Discount</th>
+                <th>Subtotal</th>
+                <th>Update</th>
+                <th>Delete</th>
+
+            
+            </thead>
+            <tbody>
+                {% for key,product in session['Shoppingcart'].items() %}
+                {% set discount ="%0.2f"|format((product.discount/100)*product.price|float) %}
+                <tr>
+                <td>{{loop.index}}</td>
+                <td><img src="{{url_for('static',filename='images/'+product.image)}}" alt="{{[product.name]}}" width="70",height="45"></td>
+                <td>{{product.name}}</td>
+                <br>
+                <form action="{{url_for('updatecart',code=key)}}" method="POST">
+                <td>
+                    {% set colors=product.colors.split(',') %}
+                    <select name="color" id="color">
+                        <option value="{{product.color}}" style="display: none;">{{product.colors|capitalize}}</option>
+                        {% for color in colors %}
+                        {% set col= color.split(':') %}
+                        <option value="{{col[0]}}">{{col[0]|capitalize}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <br>
+                <td>&#8377;{{product.price}}</td>
+                <br>
+                {% if product.stock>0 %}
+                <td><font color="green">In stock</font></td>
+                {% else%}
+                <td><font color="red">Out of stock</font></td>
+                {% endif %}
+                <form action="" method="POST">
+                <td><input type="number" name="quantity" min="1" max="10" value="{{product.quantity}}"></td>
+                <br>
+                {% if product.discount>0 %}
+                <td>{{product.discount}}%</td>
+                {%else%}
+                <td>NA</td>
+                {% endif %}
+                <!--sub total calculation with GST-->
+                {% set subtotal=product.quantity|int*product.price|float %}
+                <td>{{"%0.2f"|format((subtotal|float)-discount|float)}}</td>
+
+                <td><button class="btn btn-dark" type="submit">Update</td></button>
+                </form>
+                <td><a href="{{url_for('deleteitem',id=key)}}" class="btn btn-danger">Delete</td></a>
+                </tr>
+                {% endfor %}
+                <br>
+                <tr>
+                <br>
+                <td></td>
+                <br>
+                <br>
+                 <td><b>Tax:&#8377;{{tax}}</td></b>
+                 <td colspan="3"><b>Grand Total:&#8377;{{grandtotal}}</td></b>
+                 <td colspan="3"><b>In words:{{to_words}}</b></td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="{{url_for('get_order')}}"class="btn btn-outline-success">Order Now</a>
+        <a href="/product_page"class="btn btn-outline-secondary">Continue shopping</a>
+        <a href="/empty"class="btn btn-outline-danger ">Empty entire cart</a>
+    </div>
+
+</div>
+<hr color="#e5e4e2">
+{% endblock %}

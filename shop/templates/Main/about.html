@@ -1,0 +1,241 @@
+{% extends 'layout.html'%}
+{% include '_messages.html'%}
+{%block body %}
+<html lang="en">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<style>
+
+/* Wrapper */
+.icon-button {
+	background-color: white;
+	border-radius: 3.6rem;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 2.0rem;
+	height: 3.6rem;
+	line-height: 3.6rem;
+	margin: 0 5px;
+	position: relative;
+	text-align: center;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+	width: 3.6rem;
+}
+
+/* Circle */
+.icon-button span {
+	border-radius: 0;
+	display: block;
+	height: 0;
+	left: 50%;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	-webkit-transition: all 0.3s;
+	   -moz-transition: all 0.3s;
+	     -o-transition: all 0.3s;
+	        transition: all 0.3s;
+	width: 0;
+}
+.icon-button:hover span {
+	width: 3.6rem;
+	height: 3.6rem;
+	border-radius: 3.6rem;
+	margin: -1.8rem;
+}
+.twitter span {
+	background-color: #4099ff;
+}
+.facebook span {
+	background-color: #3B5998;
+}
+.google-plus span {
+	background-color: #db5a3c;
+}
+
+/* Icons */
+.icon-button i {
+	background: none;
+	color: white;
+	height: 3.6rem;
+	left: 0;
+	line-height: 3.6rem;
+	position: absolute;
+	top: 0;
+	-webkit-transition: all 0.3s;
+	   -moz-transition: all 0.3s;
+	     -o-transition: all 0.3s;
+	        transition: all 0.3s;
+	width: 3.6rem;
+	z-index: 10;
+}
+.icon-button .icon-twitter {
+	color: #4099ff;
+}
+.icon-button .icon-facebook {
+	color: #3B5998;
+}
+.icon-button .icon-google-plus {
+	color: #db5a3c;
+}
+.icon-button:hover .icon-twitter,
+.icon-button:hover .icon-facebook,
+.icon-button:hover .icon-google-plus {
+	color: white;
+}
+
+
+    .hh1{
+        color:#e5e4e2;
+      
+    }
+    body{
+        background-color:#e3e3e3;
+        font-family: sans-serif;
+        font-size: 1vw;
+    }
+    *{
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans",sans-serif;
+    box-sizing: border-box;
+}
+.about-section{
+    background:  url('/static/pic25.jpg') no-repeat;
+    background-size: 70%;
+    background-color: black;
+    overflow: hidden;
+    padding: 100px 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inner-container{
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:black;
+    padding: 100px;
+    border-radius: 25px;
+}
+
+.inner-container h1{
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.text{
+    font-size: 1vw;
+    color: #e5e4e2;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+.skills{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 1vw;
+}
+
+@media only screen and (max-width: 600px) {
+    .text{
+      font-size: 3vw;
+   
+  }
+  .skills{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 3vw;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:1200px){
+    .inner-container{
+        padding: 80px;
+    }
+}
+
+@media screen and (max-width:1000px){
+    .about-section{
+        background-size: 100%;
+        padding: 100px 40px;
+    }
+    .inner-container{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:600px){
+    .about-section{
+        padding: 0;
+    }
+    .inner-container{
+        padding: 60px;
+    }
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="about-section">
+        <div class="inner-container">
+            <h1 class="hh1">About SpareMate</h1>
+            <p class="text">
+               <font color="black"><b>What is SpareMate ?</font><br></b>
+               Sparemate is an ecommerce system that aims to make buying and selling of vehicular spare parts easier for indian markets.
+               We provide high quality and highly affordable parts right to your doorstep. On top of that we work with local dealers to bring their business online through our platform.<br>
+               <font color="black"><b>Why choose SpareMate?</font><br></b>
+               If you are one of those who need high quality parts but are low on budget,then Sparemate is for you.
+               We provide only the highest quality products that are tested prior shipping to you.
+            </p>
+            <div class="skills">
+                <span>GitHub:<a href="https://github.com/Shreyankkarjigi/SpareMate">https://github.com/Shreyankkarjigi/SpareMate</span></a>        
+                
+        </div>
+        <br>
+        <br>
+        <h4 color="white">Follow us on our socials</h4>
+        <a href="https://twitter.com/minimalmonkey" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a>
+<a href="https://facebook.com" class="icon-button facebook"><i class="icon-facebook"></i><span></span></a>
+<a href="https://plus.google.com" class="icon-button google-plus"><i class="icon-google-plus"></i><span></span></a>
+    </div>
+</body>
+</html>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

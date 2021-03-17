@@ -1,0 +1,305 @@
+{% extends 'layout.html' %}
+{% block body %}
+<head>
+<style>
+   .sbtn{
+
+display: table;
+margin-right: auto;
+margin-left: auto;
+}
+    .form_batt{
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  
+  .center2{
+    font-size: x-large;
+    text-align: center;
+    color: #e5e4e2 ;
+  }
+
+
+
+  
+  
+    .hr1{
+    opacity:  0.9;
+  }
+  .dropdown-item:hover {
+            background-color: #3D3D3D;
+            color: #e5e4e2;
+        }
+     
+  .navbar .nav-item .dropdown-menu{ display: none; }
+  .navbar .nav-item:hover .dropdown-menu{ display: block; }
+ 
+  .welcome{
+  background-image: url('/static/road.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+  width: 100%;
+  height:100%;
+  padding-top:500px;
+  }
+  .hero{
+    font-size:100px;
+    margin-top: 80px;
+    font-family: Corbert Condensed Italic;
+    color:#e5e4e2 ;
+    text-align: center;
+ 
+  }
+  .main{
+    font-size: 90px;
+    color: #c5a880;
+  }
+  .content{
+  height: 400px;
+  width: 600px;
+  overflow: hidden;
+  box-shadow: 1px 1px 15px rgba(0,0,0,0.4);
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
+}
+.content .images{
+  height: 70%;
+  width: 100%;
+}
+.images img{
+  height: 100%;
+  width: 100%;
+}
+  .float-left btn btn-sm btn-primary{
+    border-radius: 2px;
+  }
+  .searchbar{
+    float: right;
+  }
+
+ .filterhead{
+   text-align:left;
+   padding-left: 10px;
+   font-size: large;
+   position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: auto;
+
+ }
+  
+  .card{
+    border: 1px solid #F5F5F5;
+    border-radius: 30px;
+    height:100%;
+    width:100%;
+    background-color:#0f0f0f;
+
+
+  }
+  .card-body{
+    color:#e5e4e2;
+  }
+
+  .card-img-top{
+    border-radius: 30px;
+    height: 50%;
+    width:90%;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .card{
+    border: 2px solid #F5F5F5;
+    border-radius: 40px;
+    height:100%;
+    width:70%;
+    background-color:black;
+    display: flex;
+  margin-left: auto;
+  margin-right: auto;
+
+
+  }
+  .qoute{
+  display: none;
+  }
+ 
+  .card-body{
+    color:#e5e4e2;
+  }
+
+  .card-img-top{
+    border-radius: 40px;
+    height: 50%;
+    width:90%;
+    display: flex;
+  }
+
+  .welcome{
+  background-image: url('/static/road.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 100%;
+  height:100%;
+  padding-top:120px;
+  display: flex;
+
+  }
+  .hero{
+    font-size:50px;
+    margin-top: 120px;
+    font-family: Corbert Condensed Italic;
+    color:#e5e4e2 ;
+    text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+ 
+  }
+
+  }
+
+  li {
+    list-style-type: none;
+}
+
+.btn {
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 15px;
+  
+}
+
+
+.heroContents {
+	padding-bottom: 35px;
+	text-align: center;
+	color: #e5e4e2;
+  width: 100%;
+}
+
+a:link {
+    text-decoration: none;
+    color:white;
+}
+
+/* rest of stuff */
+  .centered {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:#e5e4e2;
+}
+
+ 
+  
+  
+  a{
+    color:#4d375d
+  }
+  
+    .heading{
+    
+       
+        font-size: 120px;
+        color: #f6f6f6
+        
+      
+        
+    }
+    .center{
+        text-align: center;
+        padding-top: 50px;
+        color:#e5e4e2;
+        position: -webkit-sticky; /* Safari */
+  position: sticky;
+
+     
+}
+</style>
+</head>
+<body>
+<br>
+<br>
+<br>
+<!--header-->
+<br>
+<br>
+<div class="welcome">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 align="center" class="hero"> SpareMate 24/7 Roadside Assistance</font></h1>
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<!--header ends-->
+<h3 class="text-center"><font color="white">Please fill the given form and we will be there with you in no time</h3></font>
+<br>
+<h3 class="text-center"><font color="#c72c41"><b>Call Us at:1800-420-6969</h3></b></font>
+
+<br>
+<br>
+<div class="form_batt">
+
+    <div class="col-md-4"></div>
+    {% from "_formhelpers.html" import render_field %}
+                <font color="#e5e4e2">{% include '_messages.html' %}</font>
+                <form method=post>
+                    {{form.csrf_token}}
+                <div>
+                    <font color="#e5e4e2"> {{ render_field(form.cust_name, class="form-control",placeholder="Name") }}</font>
+                        <font color="#e5e4e2"> {{ render_field(form.car_brand, class="form-control",placeholder="Car brand") }}</font>
+                        <font color="#e5e4e2"> {{ render_field(form.cust_phone, class="form-control",placeholder="Phone No") }}</font>
+                        <font color="#e5e4e2"> {{ render_field(form.car_number, class="form-control",placeholder="Car number") }}</font>
+                        <font color="#e5e4e2"> {{ render_field(form.car_model, class="form-control",placeholder="Car model") }}</font>
+                        <font color="#e5e4e2"><p>Click the button to get your coordinates and then paste it in location field.</p></font>
+                        <font color="#e5e4e2"><p id="demo"></p></font>
+                        
+                        <button onclick="getLocation()"class="btn btn-dark">Get your exact coordinates</button>
+                        <br>
+                        <br>
+                        <font color="#e5e4e2"> {{ render_field(form.cust_location, class="form-control",placeholder="Copy paste Latitude & Longitude") }}</font> 
+                        <font color="#e5e4e2"> {{ render_field(form.cust_landmark, class="form-control",placeholder="Landmark") }}</font> 
+                        <font color="#e5e4e2"> {{render_field(form.cust_issue,class="form-control",placeholder="Issue",rows="10")}}</font>                          
+                        <br>
+                        <br>
+                        <div class="sbtn">
+                          <font color="#e5e4e2"> {{ form.submit(class="btn btn-light btn-lg") }}</font>
+                         </div> 
+                </div>
+</div>
+</div>
+<script>
+  var x = document.getElementById("demo");
+  
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+  
+  function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+  }
+  </script>
+<hr color="white" class="hr1">  
+{% include '_messages.html'%}
+<br>
+<br>
+<br>
+{% endblock %}

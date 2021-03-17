@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<title>SpareMate Admin</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- keeping all scripts and style local for faster load times-->
+    <!--bootstrap-->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <!--scripts-->
+    <script src="{{url_for('static', filename='js/a076d05399.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery-3.5.1.js')}}"></script>
+    <script src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+    <style>
+        .dropdown-item:hover {
+            background-color: #3D3D3D;
+            color: white;
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family:'Times New Roman', Times, serif;
+            font-size: medium;
+        }
+        
+        a:hover {
+            background-color: #3A3B3C;
+        }
+        
+        body{
+    background-color: #010101;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+  }
+        
+        .container {
+            background-color: rgba(0, 0, 0, 0.5);
+            width: auto;
+        }
+        
+        .table table-sm {
+            width: 60%;
+        }
+        
+        .wrapper {
+            text-align: center;
+        }
+        
+        .button {
+            position: absolute;
+            top: 50%;
+        }
+        
+       
+        
+        @media (max-width: 765px) {
+            .container {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="{{url_for('admin')}}">SpareMate Admin</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{url_for('admin')}}">Product</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Edit Database
+              </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                        <a class="dropdown-item" href="{{url_for('brands')}}">Edit brand</a>
+                        <a class="dropdown-item" href="{{url_for('category')}}">Edit category</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Add products
+              </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{url_for('addproduct')}}">Add product</a>
+                        <a class="dropdown-item" href="{{url_for('addbrand')}}">Add brand</a>
+                        <a class="dropdown-item" href="{{url_for('addcat')}}">Add category</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Data Points
+              </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{url_for('orders_admin')}}">Orders</a>
+                        <a class="dropdown-item" href="{{url_for('reviews_admin')}}">Ratings</a>
+                        <a class="dropdown-item" href="{{url_for('bat_request')}}">Battery exchange</a>
+                        <a class="dropdown-item" href="{{url_for('parts_request')}}">Parts request</a>
+                        <a class="dropdown-item" href="{{url_for('feedback_user')}}">Feedbacks</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('login')}}">Admin Login</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {%block content %}
+
+    {%endblock%}
+
+    </body>
+    </html>

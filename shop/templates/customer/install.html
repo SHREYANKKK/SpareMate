@@ -1,0 +1,302 @@
+{% extends 'layout.html' %}
+{% block body %}
+{% include '_messages.html'%}
+<head>
+<style>
+  
+  .qoute1{
+  font-size:40px;
+  color:#91091e;
+  }
+  ul{
+    list-style-type: upper-roman;
+    
+  }
+  li{
+    color: #e5e4e2;
+    font-size: larger;
+  }
+  .how{
+    display: table;
+margin-left: auto;
+
+    margin-right:auto;
+    margin-top: 150px;
+    
+    
+  }
+   .sbtn{
+
+display: table;
+margin-right: auto;
+margin-left: auto;
+}
+    .form_batt{
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  
+  .center2{
+    font-size: x-large;
+    text-align: center;
+    color: #e5e4e2 ;
+  }
+
+
+
+  
+  
+    .hr1{
+    opacity:  0.9;
+  }
+  .dropdown-item:hover {
+            background-color: #3D3D3D;
+            color: #e5e4e2;
+        }
+     
+  .navbar .nav-item .dropdown-menu{ display: none; }
+  .navbar .nav-item:hover .dropdown-menu{ display: block; }
+ 
+  .welcome{
+  background-image: url('/static/op.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 500px 500px;
+  width: 100%;
+  height:100%;
+  padding-top:500px;
+  display: table;
+  margin-left: auto;
+  margin-right:auto;
+  }
+  
+  
+  .hero{
+    font-size:100px;
+    margin-top: 200px;
+    font-family: Corbert Condensed Italic;
+    color:#e5e4e2 ;
+    text-align: center;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+ 
+  }
+  .main{
+    font-size: 90px;
+    color: #c5a880;
+  }
+  .content{
+  height: 400px;
+  width: 600px;
+  overflow: hidden;
+  box-shadow: 1px 1px 15px rgba(0,0,0,0.4);
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
+}
+.content .images{
+  height: 70%;
+  width: 100%;
+}
+.images img{
+  height: 100%;
+  width: 100%;
+}
+  .float-left btn btn-sm btn-primary{
+    border-radius: 2px;
+  }
+  .searchbar{
+    float: right;
+  }
+
+ .filterhead{
+   text-align:left;
+   padding-left: 10px;
+   font-size: large;
+   position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: auto;
+
+ }
+  
+  .card{
+    border: 1px solid #F5F5F5;
+    border-radius: 30px;
+    height:100%;
+    width:100%;
+    background-color:#0f0f0f;
+
+
+  }
+  .card-body{
+    color:#e5e4e2;
+  }
+
+  .card-img-top{
+    border-radius: 30px;
+    height: 50%;
+    width:90%;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .card{
+    border: 2px solid #F5F5F5;
+    border-radius: 40px;
+    height:100%;
+    width:70%;
+    background-color:black;
+    display: flex;
+  margin-left: auto;
+  margin-right: auto;
+
+
+  }
+
+  
+  
+  .qoute{
+  display: none;
+  }
+ 
+  .card-body{
+    color:#e5e4e2;
+  }
+
+  .card-img-top{
+    border-radius: 40px;
+    height: 50%;
+    width:90%;
+    display: flex;
+  }
+
+  .welcome{
+  background-image: url('/static/op.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+  width: 100%;
+  height:100%;
+  padding-top:120px;
+  display: flex;
+
+  }
+  .hero{
+    font-size:100px;
+    margin-top: 80px;
+    font-family: Corbert Condensed Italic;
+    color:#e5e4e2 ;
+    text-align: center;
+ 
+  }
+
+  }
+
+  li {
+    list-style-type: none;
+}
+
+.btn {
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 15px;
+  
+}
+
+
+.heroContents {
+	padding-bottom: 35px;
+	text-align: center;
+	color: #e5e4e2;
+  width: 100%;
+}
+
+a:link {
+    text-decoration: none;
+    color:white;
+}
+
+/* rest of stuff */
+  .centered {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:#e5e4e2;
+}
+
+ 
+  
+  
+  a{
+    color:#4d375d
+  }
+  
+    .heading{
+    
+       
+        font-size: 120px;
+        color: #f6f6f6
+        
+      
+        
+    }
+    .center{
+        text-align: center;
+        padding-top: 50px;
+        color:#e5e4e2;
+        position: -webkit-sticky; /* Safari */
+  position: sticky;
+
+     
+}
+</style>
+</head>
+<body>
+
+
+<!--header-->
+<div class="welcome">
+<br>
+<br>
+<br>
+<br>
+<h1 align="center" class="hero">Request Installation</font></h1>
+<h3 align="center"class="qoute"><font color="#e5e4e2">Need help in installation of product?</h3></font>
+<h3 align="center"class="qoute"><font color="#e5e4e2">No issues,we will help you out with our highly trained engineers</h3></font>
+<br>
+<h3 align="center"class="qoute"><font color="#e5e4e2"><a href="{{url_for('install_services')}}">Read our installation policy</h3></font>
+
+</div>
+<br>
+<br>
+<br>
+<div class="form_batt">
+
+    <div class="col-md-3"></div>
+    {% from "_formhelpers.html" import render_field %}
+                <font color="#e5e4e2">{% include '_messages.html' %}</font>
+                <form method=post>
+                    {{form.csrf_token}}
+                <div>
+                    <font color="#e5e4e2"> {{ render_field(form.cust_name, class="form-control",placeholder="Customer name") }}</font>
+                        <font color="#e5e4e2"> {{ render_field(form.cust_email, class="form-control",placeholder="Email") }}</font>
+                        <font color="#e5e4e2"> {{ render_field(form.cust_phone, class="form-control",placeholder="Phone") }}</font>
+                        <font color="#e5e4e2"> {{ render_field(form.v_brand, class="form-control",placeholder="Vehicle brand") }}</font>
+                        <font color="#e5e4e2"> {{ render_field(form.v_model, class="form-control",placeholder="Vehicle Model") }}</font>
+                        <font color="#e5e4e2"> {{ render_field(form.invoice, class="form-control",placeholder="Invoice Number") }}</font>
+                        <br>
+                        <br>
+                        <div class="sbtn">
+                          <font color="#e5e4e2"> {{ form.submit(class="btn btn-dark btn-lg") }}</font>
+                         </div> 
+                </div>
+</div>
+</div>
+<hr color="white" style="opacity: 0.9;">  
+<br>
+<br>
+<br>
+{% endblock %}

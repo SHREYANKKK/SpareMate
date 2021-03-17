@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block body %}
+{% include '_messages.html'%}
+{% from "_formhelpers.html" import render_field %}
+<style>
+     body{
+        background-color:black;
+
+        background-repeat: no-repeat;
+        background-size: 20%;
+        margin-left: auto;
+        margin-right: auto;
+        background-position: center;
+      
+
+    }
+    .sbtn{
+
+        display: table;
+  margin-right: auto;
+  margin-left: auto;
+    }
+</style>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <br>
+            <h1 class="text-center"><font color="#e5e4e2" size="20px"><b>Hola!</b></font></h1>
+            <h1 class="text-center"><font color="#e5e4e2">Welcome to SpareMate</h1></font>
+            <h5 class="text-center"><font color="#e5e4e2">Please help us with little information about yourself,so that we don't deliver your order to some random person</h5></font>
+        </div>
+        <br>
+        <div class="col-md-2"></div>
+    </div>
+    <form action="" method="post">
+        {{ form.csrf_token }}
+        <br>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <br>
+            <div class="col-md-4">
+                <font color="#e5e4e2">{{ render_field(form.name, class="form-control",placeholder="Name")}}</font>
+                <font color="#e5e4e2">{{ render_field(form.username,class="form-control",placeholder="Username")}}</font>
+                    <font color="#e5e4e2"> {{ render_field(form.email,class="form-control",placeholder="Email")}}</font>
+                        <font color="#e5e4e2">{{ render_field(form.password, class="form-control",placeholder="Password")}}</font>
+                            <font color="#e5e4e2">{{ render_field(form.confirm ,class="form-control",placeholder="Confrim Password")}}</font>
+                                <font color="#e5e4e2"> {{ form.profile() }}</font>
+            </div>
+            <div class="col-md-4">
+                <font color="#e5e4e2">  {{ render_field(form.country,class="form-control",placeholder="Country")}}</font>
+                    <font color="#e5e4e2">  {{ render_field(form.city, class="form-control",placeholder="City")}}</font>
+                        <font color="#e5e4e2"> {{ render_field(form.contact, class="form-control",placeholder="Contact")}}</font>
+                            <font color="#e5e4e2"> {{ render_field(form.address, class="form-control",placeholder="Address")}}</font>
+                                <font color="#e5e4e2"> {{ render_field(form.zipcode, class="form-control",placeholder="Zipcode")}}</font>
+                                
+            </div>
+    
+            <div class="col-md-2"></div>
+        </div>
+        <div class="sbtn">
+            <font color="#e5e4e2"> {{ form.submit(class="btn btn-dark btn-lg") }}</font>
+           </div> 
+    </form>
+    <br>
+</div>
+<hr color="white" class="hr1">
+{% endblock%}

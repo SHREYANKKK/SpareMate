@@ -1,0 +1,90 @@
+{% extends 'layout_admin.html'%}
+{%block content %}
+{% include '_messages.html'%}
+<head>
+<style> 
+        @media (max-width: 765px) {
+            .container {
+                width: 100%;
+                background-color: #161618;
+            }
+        }
+
+    </style>
+</head>
+    <br>
+    <br>
+    <div class="container"style="background-color:#0f0f0f;border-radius: 30px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <br>
+                        <br>
+                        <h1 class="text-center">
+                            <font color="white"><font size="20px">Add Product</font></h1>
+        </head>
+        </font>
+        <br>
+        <h5 class="text-center">
+            <font color="white">Please attach certificate of authencity for products if available</h5>
+        </font>
+        <h5 class="text-center">
+            <font color="white">Leave discount blank if not applicable</h5>
+        </font>
+        <br>
+        <br>
+        <br>
+        <h6 class="text-center">
+            <font color="white">Start typing to dismiss</h6>
+        </font>
+
+        <br> {% from "_formhelpers.html" import render_field %}
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            {{render_field(form.name,class="form-control",placeholder="Product name")}} {{render_field(form.price,class="form-control",placeholder="Product price")}} {{render_field(form.discount,class="form-control",placeholder="Product discount")}} {{render_field(form.stock,class="form-control",placeholder="Stock")}}
+            {{render_field(form.origin,class="form-control",placeholder="Origin")}}{{render_field(form.condition,class="form-control",placeholder="Product condition")}}{{render_field(form.colors,class="form-control",placeholder="Product color")}} {{render_field(form.description,class="form-control",placeholder="Description",rows="10")}}
+            {{render_field(form.install_service,class="form-control",placeholder="Do you provide installation service",rows="2")}}
+            <label for="brand"><font color="white">Add a brand</label></font>
+
+            <select name='brand' id="brand" class="form-control" required>
+
+<option value="">Select a brand</option>
+{% for brand in brands%}
+<option value="{{brand.id}}">{{brand.name}}</option>
+{% endfor %}
+
+</select>
+
+            <label for="category"><font color="white">Add a category</label></font>
+            <select name='category' id="category" class="form-control" required>
+
+<option value="">Add a category</option>
+{% for category in categories%}
+<option value="{{category.id}}">{{category.name}}</option>
+{% endfor %}
+</select>
+            <label for="images"><font color="white">Choose Images</label></font>
+            <div class="container-1">
+                <div class="row">
+
+                    <div class='col-md-4'>{{render_field(form.image_1,class="form-control")}}</div>
+                    <div class='col-md-4'>{{render_field(form.image_2,class="form-control")}}</div>
+                    <div class='col-md-4'>{{render_field(form.image_3,class="form-control")}}</div>
+                    <div class='col-md-4'>{{render_field(form.certificate,class="form-control")}}</div>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-outline-danger">Add Product</button>
+        </form>
+        </div>
+        <div class="col-md-2"></div>
+        </div>
+        </div>
+</body>
+<div class="footer-copyright text-center py-3">
+    <font family="roboto">
+        <font color="white">© 2020 Copyright:</font>
+        <a href="{{url_for('admin')}}"> SpareMate.com</a>
+</div>
+{% endblock %}

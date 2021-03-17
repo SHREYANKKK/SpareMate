@@ -1,0 +1,152 @@
+{% include "_messages.html" %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- keeping all scripts and style local for faster load times-->
+    <!--bootstrap-->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <!--scripts-->
+    <script src="{{url_for('static', filename='js/a076d05399.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery-3.5.1.js')}}"></script>
+    <script src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+    <style>
+        h6 {
+            color: white;
+        }
+        
+        body{
+    background-color: #010101;
+    font-family: 'Times New Roman', Times, serif;
+  }
+        
+        .btn-info {
+            color: white;
+            font-family: roboto;
+            font-size: 20px;
+        }
+        
+        .logo-signup {
+            width: 100px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 60px;
+        }
+        
+        @media (max-width: 765px) {
+            .logo-signup {
+                width: 80px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                padding-top: 60px;
+            }
+        }
+        
+        .container {
+            text-align: center;
+        }
+        
+        .fields {
+            width: 300px;
+            padding: 5px;
+            border: 2px solid #eee;
+            box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+        
+        @media (max-width: 765px) {
+            .fields {
+                width: 200px;
+                padding: 5px;
+                border: 2px solid #eee;
+                box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+                border-radius: 10px;
+                box-sizing: border-box;
+            }
+        }
+        
+        .heading {
+            text-align: center;
+            font-family: roboto;
+            margin-top: 60px;
+            font-size: 80px;
+            color: white;
+        }
+        
+        @media (max-width: 765px) {
+            .heading {
+                text-align: center;
+                font-family: roboto;
+                margin-top: 60px;
+                font-size: 40px;
+            }
+            .navbar-toggler {
+                display: None;
+            }
+            .navbar-brand {
+                font-size: 15px;
+                color: #ba0f09;
+            }
+            .navbar-brand:hover {
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="{{url_for('admin')}}">
+            <font color="white">SpareMate Admin panel</a>
+        </font>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        </ul>
+        </div>
+    </nav>
+    {% block content%}
+
+
+    <h1 class="heading">
+        <font color="white">Admin Login</h1>
+    </font>
+    <br>
+    <br> {% from "_formhelpers.html" import render_field %}
+
+    <div class="container">
+        {% from "_formhelpers.html" import render_field %}
+        <form method="post" enctype="multipart/form-data">
+            <div>
+
+                {{ render_field(form.email,class="fields",placeholder="Email") }} {{ render_field(form.password,class="fields",placeholder="Password") }}
+
+
+            </div>
+            <br>
+            <p align="center"><input type="submit" value="Login" class="btn btn-outline-danger"></p>
+        </form>
+
+
+
+    </div>
+    <div class="footer-copyright text-center py-3">
+        <font family="roboto">
+            <font color="white">©2020 Copyright:
+                <a href=""> SpareMate.com</a>
+                <br>
+                <br>
+                <h6>Login detection system is active</h6>
+                <h6>Admin are notifed of login attempt</h6>
+    </div>
+
+    {% endblock %}
+
+</body>
+
+</html>

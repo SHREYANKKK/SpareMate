@@ -1,0 +1,3 @@
+product_id,name,price,discount,stock,origin,condition,description,install_service,rating,colors,brand_id,category_id,image_1,image_2,image_3,certificate
+1,test,3900,0,10,India,New,fffff,yes,,ffff,1,1,e7315a80e7bb0cd2341c.png,9c683e8dd7b6dcd90179.png,6e0f7acf3efa5547375d.png,daf72dddbae66b81610b.png
+2,testt,853,0,10,India,New,null,yes,,white,1,1,3557a834838ab46ece97.png,97972da8c8cbbe8faf15.png,81e884b26bfb58697464.png,177289eba70e64ca670c.png

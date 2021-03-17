@@ -1,0 +1,114 @@
+{% extends 'layout.html'%}
+{% include '_messages.html'%}
+{%block body %}
+<html lang="en">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<style>
+    .abouthead{
+        color: white;
+        font-weight: bold;
+    }
+    body{
+    
+        font-family: sans-serif;
+       
+    }
+    *{
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans",sans-serif;
+    box-sizing: border-box;
+}
+.about-section{
+    background: url('/static/pic91.png') no-repeat;
+    padding-left: 80px;
+    background-size:40%;
+    background-color: black;
+    overflow: hidden;
+    padding: 200px 0;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+
+.inner-container{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:rgba(0,0,0,0.65);
+    padding: 100px;
+    border-radius: 25px;
+}
+
+.inner-container h1{
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.text{
+    font-size: 15px;
+    color:white;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+.skills{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+@media screen and (max-width:1200px){
+    .inner-container{
+        padding: 80px;
+    }
+}
+
+@media screen and (max-width:1000px){
+    .about-section{
+        background-size: 100%;
+        padding: 100px 40px;
+    }
+    .inner-container{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:600px){
+    .about-section{
+        padding: 0;
+    }
+    .inner-container{
+        padding: 60px;
+    }
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="about-section">
+        <div class="inner-container">
+            <h1 class="abouthead">About Stripe</h1>
+            <p class="text">
+                Stripe is an Irish-American financial services and software as a service company dual-headquartered in San Francisco, California and Dublin, Ireland. The company primarily offers payment processing software and application programming interfaces for e-commerce websites and mobile applications.
+                </p>
+            <div class="skills">
+                <span><font align="right">Visit stripe:<a href="https://stripe.com/en-in">Visit Stripe</span></a></font>        
+        </div>
+    </div>
+</body>
+</html>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

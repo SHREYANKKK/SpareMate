@@ -1,0 +1,76 @@
+{% extends 'layout_admin.html'%}
+{%block content %}
+{% include '_messages.html'%}
+    <style>
+       
+        .form-control {
+            color: black;
+            font-size: medium;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        @media (max-width: 765px) {
+            .container {
+                width: 100%;
+            }
+        }
+        
+      
+    </style>
+</head>
+
+
+<br>
+    <br>
+    <br>
+    <div class="container"style="background-color:#0f0f0f;border-radius: 30px;">
+        <div class="row">
+
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                {% if updatebrand %}
+                <h1 class='text-center mt-5'>
+                    <font color="white"><font size="20px">Update Brand </h1></font>
+</body>
+</font>
+<h4 class='text-center mt-5'>
+    <font color="white">Input manufacturer's name</h4>
+</font>
+<br>
+<form action="" method='POST'>
+
+    <input type="text" name="brand" class="form-control" value="{{updatebrand.name}}">
+    <br>
+    <button type="submit" class="btn btn-outline-danger">Update Brand</button>
+</form>
+<br>
+<a href="{{url_for('brands')}}" class="btn btn-danger">Cancel</a> {% else %}
+<h1 class='text-center mt-5'>
+    <font color="white"><font size="20px">Update Category </h1></font>
+</font>
+<h5 class='text-center mt-5'>
+    <font color="white">Input product category</h5>
+</font>
+<h5 class='text-center mt-5'>
+    <font color="white">Example:Cars,Bikes etc.</h5>
+</font>
+<form action="" method='POST'>
+    <input type="text" name="category" class="form-control" value="{{updatecategory.name}}">
+    <br>
+    <br>
+    <button type="submit" class="btn btn-outline-danger">Update Category</button>
+</form>
+<br>
+<a href="{{url_for('category')}}" class="btn btn-danger">Cancel</a> {% endif %}
+<br>
+</div>
+<br>
+<div class="col-md-3"></div>
+<br>
+</div>
+</div>
+<div class="footer-copyright text-center py-3">
+    <font family="roboto" color="white">© 2020 Copyright:
+        <a href="{{url_for('admin')}}"> SpareMate.com</a>
+</div>
+{% endblock %}

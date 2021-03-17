@@ -1,0 +1,176 @@
+{% extends 'layout_admin.html'%}
+{%block content %}
+{% include '_messages.html'%}
+<head>
+    <style>
+    
+    @media 
+    only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px)  {
+    
+        /* Force table to not be like tables anymore */
+        table, thead, tbody, th, td, tr { 
+            display: block; 
+        }
+        
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr { 
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+        
+        tr { border: 1px solid #ccc;border-radius: 10px;}
+        
+        td { 
+            /* Behave  like a "row" */
+            border: none;
+            border-bottom: 1px solid #eee; 
+            position:relative;
+            text-align: center;
+            margin-left: 0px;
+        }
+        
+        td:before { 
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: 6px;
+            left: 6px;
+            width: 45%; 
+            padding-right: 10px; 
+            white-space: nowrap;
+        }
+        
+        /*
+        Label the data
+        */
+        td:nth-of-type(1):before { content: "SerialNo"; color:white; }
+        td:nth-of-type(2):before { content: "Product_name"; color:white;}
+        td:nth-of-type(3):before { content: "Product_ID"; color:white;}
+        td:nth-of-type(4):before { content: "Price"; color:white;}
+        td:nth-of-type(5):before { content: "Discount";color:white;}
+        td:nth-of-type(6):before { content: "Brand"; color:white;}
+        td:nth-of-type(6):before { content: "Image"; color:white;}
+        td:nth-of-type(6):before { content: "Stock_status"; color:white;}
+        td:nth-of-type(6):before { content: "Edit"; color:white;}
+        td:nth-of-type(6):before { content: "Delete"; color:white;}
+        
+    }
+    </style>
+     </head>
+<br>
+<br>  
+<div class="container">
+    </div>
+    <div class="container"style="background-color:#0f0f0f;border-radius: 30px;">
+        <h5 align="center">
+            <font size="5px">
+                <br>
+                <font color="white">Inventory Overview</h5>
+        </font>
+        <hr>
+        <table class="table table-sm">
+            <thead>
+                <th>
+                    <font color="white">SerialNo.</th>
+                </font>
+                <th>
+                    <font color="white">Product Name</th>
+                </font>
+                <th>
+                <font color="white">Product ID</th>
+                </font>
+                <th>
+                    <font color="white">Price</th>
+                </font>
+                <th>
+                    <font color="white">Discount(%)</th>
+                </font>
+                <th>
+                    <font color="white">Brand</th>
+                </font>
+                <th>
+                    <font color="white">Image</th>
+                </font>
+                <th>
+                    <font color="white">Stock status</th>
+                </font>
+                <th>
+                    <font color="white">Edit</th>
+                </font>
+                <th>
+                    <font color="white">Delete</th>
+                </font>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>
+                        <font color="white">{{loop.index}}</td>
+                    </font>
+                    <td>
+                        <font color="white">{{product.name}}</td>
+                    </font>
+                    <td>
+                        <font color="white">{{product.id}}</td>
+                    </font>
+                    <td>
+                        <font color="white">{{product.price}}</td>
+                    </font>
+                    <td>
+                        <font color="white">{{product.discount}}%</td>
+                    </font>
+                    <td>
+                        <font color="white">{{product.brand.name}}</td>
+                    </font>
+                    <td> <img src="{{url_for('static',filename='images/' + product.image_1)}}" alt="{{product.name}}" width="80" height="80"></td>
+
+                    {% if product.stock>0%}
+                    <td><font color="green">Available</font><font color="white">,Quantity:{{product.stock}}</font></td>
+                    {%else%}
+                    <td><font color="red">Out of stock</font>
+                    {% endif %}
+
+
+
+
+
+                    <td> <a href="{{url_for('updateproduct', id=product.id)}}" class="btn btn-sm btn-dark">Edit </a> </td>
+                    <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal-{{product.id}}">
+Delete</button></td>
+                </tr>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal-{{product.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{{product.name}}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+        </button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-danger">Are you sure you want to delete the product {{product.name}}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <form action="{{url_for('deleteproduct',id=product.id)}}" method="post">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="footer-copyright text-center py-3">
+        <font family="roboto">
+            <font color="white">© 2020 Copyright:</font>
+            <a href="{{url_for('admin')}}"> SpareMate.com</a>
+</body>
+
+{%endblock%}

@@ -1,0 +1,140 @@
+{% extends "layout.html" %}
+{% block body %}
+{% include '_messages.html' %}
+<br>
+<br>
+<br>
+
+<style>
+
+.sbtn{
+    display: table;
+    margin-top: auto;
+    margin-right: auto;
+}
+
+.form_batt{
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+.text-center{
+    color: white;
+    font-size: 2vw;
+}
+@media screen and (max-width:600px){
+    .text-center{
+    color: white;
+    font-size: 5vw;
+
+
+}
+}
+    .logo-signup1{
+  width:110px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top:60px;
+}
+@media (max-width: 765px){
+  .logo-signup1{
+  width:90px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top:60px;
+  }
+}
+    .logbtn{
+        display: table;
+  margin-right: auto;
+  margin-left: auto;
+
+    }
+    hr{
+        opacity:0.3;
+    }
+
+    body{
+        background-color:black;
+        background-image:  url('/static/pic5.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+      
+      
+
+    }
+
+    @media screen and (max-width:600px){
+    body{
+        background-color:black;
+        background-image:  url('/static/pic5.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+
+
+}
+.form_batt{
+    margin-top: 500px;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+    .logi{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    </style> 
+    <div class="form_batt">
+    <div class="col-md-3"></div>
+    <h1 class="text-center">Login</h1>
+    {% from "_formhelpers.html" import render_field %}
+                <font color="#e5e4e2">{% include '_messages.html' %}</font>
+                <form method=post>
+                    {{form.csrf_token}}
+                <div>
+        
+                        <font color="#e5e4e2"> {{ render_field(form.email, class="form-control",placeholder="Email") }}</font>
+                        <font color="#e5e4e2"> {{ render_field(form.password, class="form-control",placeholder="Customer phone") }}</font>
+                        <br>
+                        <br>
+                        
+                        <div class="sbtn">
+            
+                    
+                            <input type="submit" value="Login" class="btn btn-light btn-lg">
+                          
+        
+
+
+
+    
+                         </div> 
+                </div>
+      <div class="col-md-3"></div>
+    </div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<hr color="white" class="hr1">
+{% endblock%}

@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<head>
+<body>
+<style>
+  
+.logo-signup1{
+  width:110px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top:60px;
+}
+@media (max-width: 765px){
+  .logo-signup1{
+  width:90px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top:60px;
+  }
+}
+
+.container{
+    text-align:center;
+}
+.fields{
+    
+  width:300px;
+  padding:5px;
+   border: 2px solid #eee;
+   box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+   border-radius:10px;
+   box-sizing: border-box;
+}
+@media (max-width: 765px){
+.fields{
+    
+  width:200px;
+  padding:5px;
+   border: 2px solid #eee;
+   box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+   border-radius:10px;
+   box-sizing: border-box;
+
+}
+}
+.heading{
+    text-align:center;
+    font-family:roboto;
+    margin-top:60px;
+    font-size:80px;
+
+
+}
+
+@media (max-width: 765px){
+    .heading{
+    text-align:center;
+    font-family:roboto;
+    margin-top:60px;
+    font-size:40px;
+
+
+}
+
+</style>
+<img class="logo-signup1" src= 
+"{{url_for('static', filename='logo2.png')}}"> 
+<h1 class="heading">SignUp</h1>
+<br>
+<br>
+
+<div class="container">
+{% from "_formhelpers.html" import render_field %}
+<form method="post" enctype="multipart/form-data">
+  <div>
+    {{ render_field(form.name,class="fields") }}
+    {{ render_field(form.username,class="fields") }}
+    {{ render_field(form.email,class="fields") }}
+    {{ render_field(form.password,class="fields") }}
+    {{ render_field(form.confirm,class="fields") }}
+  
+  </div>
+<br>
+
+  <p align="center"><input type="submit" value="Register" class="btn btn-dark"></p>
+</form>
+
+
+
+</div>
+
+
+{% endblock%}

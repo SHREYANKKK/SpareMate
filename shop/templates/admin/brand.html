@@ -1,0 +1,198 @@
+
+ {% extends 'layout_admin.html'%}
+ {%block content %}
+ {% include '_messages.html'%}
+<head>
+
+    <style>
+        .container {
+            width: 100%
+        }
+        
+        .dropdown-item:hover {
+            background-color: #3D3D3D;
+            color: white;
+        }
+        
+        .form-control {
+            color: black;
+            font-size: medium;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        a:hover {
+            background-color: #3A3B3C;
+        }
+        
+       
+    
+       
+        
+        @media (max-width: 765px) {
+            .container {
+                width: 100%;
+            }
+            body {
+                background: #161618;
+            }
+            .container {
+                background-color: rgba(0, 0, 0, 0.5);
+                width: 100%
+            }
+        }
+        
+        
+        
+        @media (max-width: 765px) {
+           
+            body {
+                background: #161618;
+            }
+            .container {
+                background-color: rgba(0, 0, 0, 0.5);
+                width: 100%
+            }
+        }
+    </style>
+</head>
+
+
+    <div class="container"style="background-color:#0f0f0f;border-radius: 30px;">
+    </div>
+
+    <br>
+    <div class="container">
+        <table class="table table-sm table-condensed table-striped table-hover">
+            <thead>
+                <th>
+                    <font color="white">SerialNo.</th>
+                </font>
+                <th>
+                    <font color="white">Name</th>
+                </font>
+                <th>
+                    <font color="white">Edit</th>
+                </font>
+                <th>
+                    <font color="white">Delete</th>
+                </font>
+            </thead>
+            <tbody>
+                {% if brands %} {% for brand in brands %}
+                <tr>
+                    <td>
+                        <font color="white">{{loop.index}}</td>
+                    </font>
+                    <td>
+                        <font color="white">{{brand.name}}</td>
+                    </font>
+                    <td><a href="{{url_for('updatebrand', id=brand.id)}}" class="btn btn-sm btn-dark">Edit</a></td>
+                    <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal-{{brand.id}}">
+              Delete
+            </button></td>
+                </tr>
+
+
+                <!--============= MODEL ===================-->
+
+                <div class="modal fade" id="exampleModal-{{brand.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{{ brand.name }}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-danger">Are you Sure that you want to delete this brand ({{ brand.name }}) </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-dark" data-dismiss="modal">Cancel</button>
+                                <form action="{{url_for('deletebrand',id=brand.id)}}" method="post">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                {%endfor%} {%else%} {% for category in categories %}
+                <tr>
+                    <td>
+                        <font color="white">{{loop.index}}</td>
+                    </font>
+                    <td>
+                        <font color="white">{{ category.name }}</td>
+                    </font>
+                    <td> <a href="{{url_for('updatecategory', id=category.id)}}" class="btn btn-sm btn-dark">Edit</a></td>
+                    <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal-{{category.id}}">
+              Delete
+            </button></td>
+                </tr>
+
+
+                <!--============= MODEL ===================-->
+                <div class="modal fade" id="exampleModal-{{category.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{{category.name }}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-danger">Are you Sure that you want to delete this Category ({{ category.name }}) </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <form action="{{url_for('deletecat',id=category.id)}}" method="post">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+                {%endfor%} {% endif %}
+            </tbody>
+        </table>
+    </div>
+    <div class="footer-copyright text-center py-3">
+        <font family="roboto">
+            <font color="white">© 2020 Copyright:</font>
+            <a href="{{url_for('admin')}}"> SpareMate.com</a>
+</body>
+
+{% endblock%}
