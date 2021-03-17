@@ -10,6 +10,51 @@ import os
 import json
 import pdfkit
 import requests
+import stripe
+
+publishable_key='pk_test_51IW275F3uPaIHCIbrtZOdk8KUASeIxEzAl2T1wVg4fVP6uVxlN5BThqkYjqqfxAUzKdatK6VGJsNButwSPUCEl6Y00YN7cZP4H'
+
+stripe.api_key ='sk_test_51IW275F3uPaIHCIb9hukHNYJp29XRt4FLxJ3LCDeNW0LZC7lrbMxqL4hFyWzj49eqGrLRfbeA6YDBImqw4ELyJtH00njkyxOxh'
+
+
+@app.route('/payment',methods=['POST'])
+@login_required
+def payment():
+    invoice=request.form.get('invoice')
+    amount=request.form.get('amount')
+
+    customer = stripe.Customer.create(
+        email=request.form['stripeEmail'],
+        source=request.form['stripeToken'],
+)
+
+    charge = stripe.Charge.create(
+        customer=customer.id,
+        description='SpareMate',
+        amount=amount,
+        currency='inr',
+)
+    orders = CustomerOrder.query.filter_by(customer_id=current_user.id, invoice=invoice).order_by(CustomerOrder.id.desc()).first()
+
+    orders.status="Paid"
+
+    db.session.commit()
+    return redirect(url_for('thanks'))
+
+
+
+@app.route('/thanks')
+def thanks():
+    return render_template('customer/thank.html')
+
+@app.route('/thanks')
+def thanks_cod():
+    return render_template('customer/thank.html')
+
+
+
+
+
 
 
 
@@ -61,6 +106,25 @@ def customer_logout():
     return redirect(url_for('customerLogin'))
 
 
+
+
+
+
+
+# remove unwanted details from shoppingcart
+
+def updateshoppingcart():
+
+    for _key,product in session['Shoppingcart'].items():
+        session.modified=True
+
+        del product['image']
+        del product['colors']
+
+
+    return updateshoppingcart
+
+
 @app.route('/getorder')
 @login_required
 def get_order():
@@ -69,13 +133,14 @@ def get_order():
     if current_user.is_authenticated:
         customer_id = current_user.id
         invoice = secrets.token_hex(5)
+        updateshoppingcart()
 
         try:
             order = CustomerOrder(invoice=invoice,customer_id=customer_id,orders=session['Shoppingcart'])
             db.session.add(order)
             db.session.commit()
             session.pop('Shoppingcart')
-            flash('Your order has been placed','success')
+            flash('Proceed with payment','success')
             return redirect(url_for('orders',invoice=invoice,brands=brands,categories=categories))
         except Exception as e:
             print(e)

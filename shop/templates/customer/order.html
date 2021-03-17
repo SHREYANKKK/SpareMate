@@ -3,7 +3,11 @@
 
 <style>
 
-
+.buttons{
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 .container4 {
 
@@ -199,14 +203,49 @@ th,td{
   <br>
   <br>
 
-  <form action="{{url_for('get_pdf',invoice=orders.invoice)}}" method="post">
-    <button type="submit" class="btn btn-outline-light btn-lg float-right"> Download Pdf</button>
-</form>
-<form action="" method="post">
-    <button type="submit" class="btn btn-outline-success btn-lg float-left">Checkout</button>
-</form> 
+
+<td>
+{% if orders.status=='Paid' %}
+{% else %}
+  <form action="{{url_for('payment')}}" method="POST">
+    {% set amount = grandTotal.replace('.','') %}
+
+    <input type="hidden" name="amount" value="{{amount}}">
+    <input type="hidden" name="invoice" value="{{orders.invoice}}">
+    <script
+      src="https://checkout.stripe.com/checkout.js"
+      class="stripe-button"
+      data-key="pk_test_51IW275F3uPaIHCIbrtZOdk8KUASeIxEzAl2T1wVg4fVP6uVxlN5BThqkYjqqfxAUzKdatK6VGJsNButwSPUCEl6Y00YN7cZP4H"
+      data-name="SpareMate"
+      data-description="Comfortable cotton t-shirt"
+      data-amount="{{amount}}"
+      data-currency="inr">
+    </script>
+    <br>
+    <br>
+    <a href="{{url_for('thanks_cod')}}"class="btn btn-light">Pay on delivery(COD)</a>
+  </form> 
+{% endif %}
+<br>
+<br>
+
+
+
+
+
+
+
+
+</td>
 </div>
-    
+<div class="buttons">
+  
+
+
+
+</div>
+
+
 <br>
 <br>
 <br>
