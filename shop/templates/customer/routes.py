@@ -44,11 +44,6 @@ def single_page(id):
     categories=Category.query.join(Addproduct,(Category.id==Addproduct.category_id)).all()
     return render_template('products/single_page.html',product=product,brands=brands,categories=categories,results = result, product_revi= product_revi, reviews_r= reviews_r)
 
-@app.route("/")
-
-def home():
-   
-    return render_template('customer/index.html')
 
 
 @app.route('/brand/<int:id>')

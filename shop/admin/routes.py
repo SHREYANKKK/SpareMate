@@ -4,7 +4,7 @@ from .forms import RegistrationForm,LoginForm,ContactForm,SellForm
 from .models import User,Contact,Sell
 import os
 import smtplib
-
+from shop.products.routes import product_page
 from shop.products.models import Addproduct,Brand,Category
 from shop.customers.models import CustomerOrder,reqpart,Battery,feedback
 from datetime import date
@@ -13,6 +13,11 @@ from datetime import timedelta
 from flask_login import LoginManager, login_required, login_user, logout_user
 
 
+@app.route("/")
+
+def home():
+   
+    return redirect('product_page')
 
 @app.route('/adminorders')
 
