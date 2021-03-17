@@ -2,7 +2,9 @@
 {% block body %}
 <head>
 <style>
-
+.search-media{
+  display: none;
+}
   .center2{
     font-size: x-large;
     text-align: center;
@@ -113,6 +115,13 @@
 
 
   }
+  .search-media{
+    display:table;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
 
   .hero{
 
@@ -219,10 +228,13 @@ a:link {
 <br>
 <br>
 <!--header-->
+
 <div class="welcome">
+  
 <h1 align="center" class="hero"> SpareMate</font></h1>
 
 </div>
+
 <br>
 <br>
 <br>
@@ -236,6 +248,13 @@ a:link {
 <h2 class="center"><font size="15px">Browse products</h2></font>
 <br>
 <h5 class="center2">Use search bar to find products</h5></font>
+<div class="search-media">
+
+  <form class="form-inline my-2 my-lg-0" action="{{url_for('result')}}">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</div>
 <br>
 <br>
 <!--cards-->

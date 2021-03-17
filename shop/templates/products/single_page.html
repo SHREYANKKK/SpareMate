@@ -1,9 +1,14 @@
 {% extends 'layout.html' %}
 {% block body %}
-{% include '_messages.html'%}
+
 <br>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+    .search-media{
+    display:none;
+   
+    
+  }
     div.scrollmenu {
   background-color: black;
   overflow: auto;
@@ -127,7 +132,13 @@ div.scrollmenu a:hover {
             margin-right: auto;
             width: 100%;
         }
-
+        .search-media{
+    display:table;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
       
 
         .row_image {
@@ -157,6 +168,11 @@ div.scrollmenu a:hover {
         margin-right: auto;
     }
 </style>
+<div class="search-media">
+<br>
+<br>
+<br>
+  
 <div class="container mt-5">
     <div class="row">
 
@@ -169,6 +185,7 @@ div.scrollmenu a:hover {
         <div class="col-md-6">
             <br>
             <br>
+            {% include '_messages.html'%}
             <h1 class="product_name"><b>{{product.name}}</h1></b><br>
             <b>Product Rating</b><p><h2><font color="white">{{product_revi.rating}}/5</p></h2></font>
 
