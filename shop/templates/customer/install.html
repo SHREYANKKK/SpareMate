@@ -141,6 +141,16 @@ margin-left: auto;
   }
 
   @media only screen and (max-width: 600px) {
+
+    .texts{
+      display: table;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top:20px;
+    }
+
+
+ 
     .card{
     border: 2px solid #F5F5F5;
     border-radius: 40px;
@@ -157,7 +167,10 @@ margin-left: auto;
   
   
   .qoute{
-  display: none;
+  display:table;
+  font-size: 3vw;
+  margin-left: auto;
+  margin-right: auto;
   }
  
   .card-body{
@@ -175,17 +188,17 @@ margin-left: auto;
   background-image: url('/static/op.png');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: auto;
-  width: 100%;
+  background-size: contain;
+  max-width: 80%;
   height:100%;
-  padding-top:120px;
-  display: flex;
+  margin-top:130px;
+
 
   }
   .hero{
-    font-size:100px;
-    margin-top: 80px;
-    font-family: Corbert Condensed Italic;
+    font-size:8vw;
+    margin-top: 100px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color:#e5e4e2 ;
     text-align: center;
  
@@ -258,17 +271,13 @@ a:link {
 
 
 <!--header-->
-<div class="welcome">
-<br>
-<br>
-<br>
-<br>
+<div class="welcome"></div>
+<div class="texts">
 <h1 align="center" class="hero">Request Installation</font></h1>
 <h3 align="center"class="qoute"><font color="#e5e4e2">Need help in installation of product?</h3></font>
 <h3 align="center"class="qoute"><font color="#e5e4e2">No issues,we will help you out with our highly trained engineers</h3></font>
 <br>
 <h3 align="center"class="qoute"><font color="#e5e4e2"><a href="{{url_for('install_services')}}">Read our installation policy</h3></font>
-
 </div>
 <br>
 <br>
