@@ -226,6 +226,7 @@ transition: all 250ms ease-in-out 0s;
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{url_for('bat_exchange')}}"> <font color="#e5e4e2" class="dropdown-text">Battery exchange program</a></font>
             <a class="dropdown-item" href="{{url_for('install_services')}}"> <font color="#e5e4e2" class="dropdown-text">Request installation for part</a></font>
+            <a class="dropdown-item" href="{{url_for('sell_page')}}"> <font color="#e5e4e2" class="dropdown-text">Become a seller</a></font>
              <a class="dropdown-item" href="{{url_for('req_part')}}"> <font color="#e5e4e2" class="dropdown-text">Request a part</a></font>
                   <a class="dropdown-item" href="{{url_for('install_policy')}}"><font color="#e5e4e2" class="dropdown-text">Installation Policy</a></font>
             <a class="dropdown-item" href="{{url_for('quality_assurance')}}"> <font color="#e5e4e2" class="dropdown-text">Quality assurance at SpareMate</a></font>
@@ -303,7 +304,7 @@ transition: all 250ms ease-in-out 0s;
         <div class="thumb-content"><a href="#.">Return policy</a></div>	
         </li>
         <li>
-        <div class="thumb-content"><a href="#.">Become a seller</a></div>	
+        <div class="thumb-content"><a href="{{url_for('sell_page')}}">Become a seller</a></div>	
         </li>
         <li>
         <div class="thumb-content"><a href="{{url_for('feed_back')}}">Feedback</a></div>	

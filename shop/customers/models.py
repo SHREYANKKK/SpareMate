@@ -126,6 +126,25 @@ class Install_ser(db.Model):
 
 
 
+class seller(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    seller_name=db.Column(db.String(20), unique=True, nullable=False)
+    seller_phone=db.Column(db.Integer, unique=False, nullable=False)
+    seller_email=db.Column(db.String(20), unique=True, nullable=False)
+    shop_name=db.Column(db.String(20),nullable=False)
+    shop_addr=db.Column(db.String(100),nullable=False)
+    services_provided = db.Column(db.String(100), unique=True, nullable=False)
+    years_service=db.Column(db.Integer, unique=False, nullable=False)
+    in_ser=db.Column(db.String(50), unique=True, nullable=False)
+    onl_pre=db.Column(db.String(50), unique=True, nullable=False)
+    est_budget=db.Column(db.String(50), unique=True, nullable=False)
+
+
+
+    
+
+
+    
 
 
 

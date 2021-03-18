@@ -98,7 +98,8 @@ body{
                 <div>
         
                         <font color="#e5e4e2"> {{ render_field(form.email, class="form-control",placeholder="Email") }}</font>
-                        <font color="#e5e4e2"> {{ render_field(form.password, class="form-control",placeholder="Password") }}</font>
+                        <font color="#e5e4e2"> {{ render_field(form.password, class="form-control",placeholder="Password",id="myInput") }}</font>
+                        <input type="checkbox" onclick="myFunction()"><font color="white"> Show Password</font>
                         <br>
                         <br>
                         
@@ -127,6 +128,15 @@ body{
 <br>
 <br>
 <br>
-
+<script>
+    function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
 <hr color="white" class="hr1">
 {% endblock%}

@@ -92,4 +92,16 @@ class install_ser_form(FlaskForm):
 
 
 
+class seller_form(FlaskForm):
+    seller_name=StringField('Name ', [validators.DataRequired()])
+    seller_phone=IntegerField('Contact: ', [validators.DataRequired()])
+    seller_email=StringField('Email: ', [validators.Email(), validators.DataRequired()])
+    shop_name=StringField('Shop Name ', [validators.DataRequired()])
+    shop_addr=TextAreaField('Shop Address',[validators.DataRequired()])
+    services_provided=TextAreaField('Services provided',[validators.DataRequired()])
+    years_service=StringField('Years in service ', [validators.DataRequired()])
+    in_ser=TextAreaField('Installation services ', [validators.DataRequired()])
+    onl_pre=TextAreaField('Online shop', [validators.DataRequired()])
+    est_budget=TextAreaField('Estimated budget for setting up buisness with us', [validators.DataRequired()])
+    submit = SubmitField('Submit')
 

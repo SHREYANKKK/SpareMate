@@ -1,8 +1,8 @@
 from flask import render_template,session, request,redirect,url_for,flash,current_app,jsonify
 from shop import app,db,photos,brcypt
-from .forms import CustomerRegisterForm,CustomerLoginFrom,Battery_form,roadside_form,reqpart_form,feedback_form,install_ser_form
+from .forms import CustomerRegisterForm,CustomerLoginFrom,Battery_form,roadside_form,reqpart_form,feedback_form,install_ser_form,seller_form
 from flask_login import login_required, current_user, logout_user, login_user,current_user
-from .models import Register,Battery,CustomerOrder,roadside,reqpart,feedback,Install_ser
+from .models import Register,Battery,CustomerOrder,roadside,reqpart,feedback,Install_ser,seller
 from shop.products.models import Brand,Category,Addproduct
 from shop.products.forms import Addproducts
 import secrets
@@ -291,3 +291,24 @@ def install_policy():
 def quality_assurance():
 
     return render_template('customer/quality.html')
+
+
+
+
+
+@app.route('/seller',methods=['GET','POST'])
+def sell_page():
+    brands= Brand.query.join(Addproduct,(Brand.id==Addproduct.brand_id)).all()
+    categories=Category.query.join(Addproduct,(Category.id==Addproduct.category_id)).all()
+    form=seller_form()
+    if form.validate_on_submit():
+        sell_form=seller_form(seller_name=form.seller_name.data,seller_email=form.seller_email.data,seller_phone=form.seller_phone.data,shop_name=form.shop_name.data,shop_adde=form.shop_addr.data,services_provided=form.services_provided.data,years_service=form.years_service.data,in_ser=form.in_ser,onl_pre=form.onl_pre.data,est_budget=form.est_budget.data)
+        db.session.add(sell_form)
+        flash(f'Thank you for showing your intrest in selling with us,we will contact you shortly','success')
+        db.session.commit()
+        return redirect('product_page')
+
+    return render_template('customer/seller.html', form=form,brands=brands,categories=categories)
+
+
+
