@@ -11,14 +11,13 @@ import os
 
 basedir=os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
-app.secret_key = 'eeeopopdopeppokakopkoapkaopap'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///localhost25466t55d999654565.db'
+app.secret_key = 'eeeopopdopeppokakospkoapkaopap'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sparemate.db'
 db = SQLAlchemy(app)
 app.config['UPLOADED_PHOTOS_DEST']=os.path.join(basedir,'static/images')
 photos = UploadSet('photos', IMAGES)
 configure_uploads(app,photos)
 patch_request_class(app) 
-
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view='customerLogin'

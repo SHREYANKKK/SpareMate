@@ -58,7 +58,7 @@ class CustomerOrder(db.Model):
 
 class Battery(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    cust_email=db.Column(db.String(20), unique=True, nullable=False)
+    cust_email=db.Column(db.String(20), unique=False, nullable=False)
     battery_brand=db.Column(db.String(20),nullable=False)
     date_purchase=db.Column(db.Integer, unique=False, nullable=False)
     cust_name=db.Column(db.String(20), nullable=False)
@@ -74,14 +74,14 @@ class Battery(db.Model):
 
 class roadside(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    cust_name=db.Column(db.String(20), unique=True, nullable=False)
+    cust_name=db.Column(db.String(20), unique=False, nullable=False)
     car_brand=db.Column(db.String(20),nullable=False)
     cust_phone=db.Column(db.Integer, unique=False, nullable=False)
     car_number=db.Column(db.Integer, unique=False, nullable=False)
     car_model=db.Column(db.String(10), nullable=False)
-    cust_location=db.Column(db.String(50), unique=True, nullable=False)
-    cust_landmark=db.Column(db.String(50), unique=True, nullable=False)
-    cust_issue=db.Column(db.String(500), unique=True, nullable=False)
+    cust_location=db.Column(db.String(50), unique=False, nullable=False)
+    cust_landmark=db.Column(db.String(50), unique=False, nullable=False)
+    cust_issue=db.Column(db.String(500), unique=False, nullable=False)
 
     def __repr__(self):
         return '<roadside %r>' % self.cust_name
@@ -89,9 +89,9 @@ class roadside(db.Model):
 
 class reqpart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    cust_name=db.Column(db.String(20), unique=True, nullable=False)
+    cust_name=db.Column(db.String(20), unique=False, nullable=False)
     cust_phone=db.Column(db.Integer, unique=False, nullable=False)
-    cust_email=db.Column(db.String(20), unique=True, nullable=False)
+    cust_email=db.Column(db.String(20), unique=False, nullable=False)
     part=db.Column(db.String(20), unique=False, nullable=False)
     v_brand=db.Column(db.String(20),nullable=False)
     v_model=db.Column(db.String(20),nullable=False)
@@ -102,11 +102,11 @@ class reqpart(db.Model):
 
 class feedback(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    cust_name=db.Column(db.String(20), unique=True, nullable=False)
+    cust_name=db.Column(db.String(20), unique=False, nullable=False)
     cust_phone=db.Column(db.Integer, unique=False, nullable=False)
-    cust_email=db.Column(db.String(20), unique=True, nullable=False)
-    res=db.Column(db.String(500), unique=True, nullable=False)
-    pro_pur=db.Column(db.String(20), unique=True, nullable=False)
+    cust_email=db.Column(db.String(20), unique=False, nullable=False)
+    res=db.Column(db.String(500), unique=False, nullable=False)
+    pro_pur=db.Column(db.String(20), unique=False, nullable=False)
     
 
     def __repr__(self):
@@ -115,8 +115,9 @@ class feedback(db.Model):
 
 class Install_ser(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    cust_name=db.Column(db.String(20), unique=True, nullable=False)
+    cust_name=db.Column(db.String(20), unique=False, nullable=False)
     cust_phone=db.Column(db.Integer, unique=False, nullable=False)
+    cust_email=db.Column(db.String(20), unique=False, nullable=False)
     v_brand=db.Column(db.String(20),nullable=False)
     v_model=db.Column(db.String(20),nullable=False)
     invoice = db.Column(db.String(20), unique=True, nullable=False)
@@ -128,16 +129,16 @@ class Install_ser(db.Model):
 
 class seller(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    seller_name=db.Column(db.String(20), unique=True, nullable=False)
+    seller_name=db.Column(db.String(20), unique=False, nullable=False)
     seller_phone=db.Column(db.Integer, unique=False, nullable=False)
-    seller_email=db.Column(db.String(20), unique=True, nullable=False)
+    seller_email=db.Column(db.String(20), unique=False, nullable=False)
     shop_name=db.Column(db.String(20),nullable=False)
     shop_addr=db.Column(db.String(100),nullable=False)
-    services_provided = db.Column(db.String(100), unique=True, nullable=False)
+    services_provided = db.Column(db.String(100), unique=False, nullable=False)
     years_service=db.Column(db.Integer, unique=False, nullable=False)
-    in_ser=db.Column(db.String(50), unique=True, nullable=False)
-    onl_pre=db.Column(db.String(50), unique=True, nullable=False)
-    est_budget=db.Column(db.String(50), unique=True, nullable=False)
+    in_ser=db.Column(db.String(50), unique=False, nullable=False)
+    onl_pre=db.Column(db.String(50), unique=False, nullable=False)
+    est_budget=db.Column(db.String(50), unique=False, nullable=False)
 
 
 

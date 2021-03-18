@@ -6,7 +6,7 @@ import os
 import smtplib
 from shop.products.routes import product_page
 from shop.products.models import Addproduct,Brand,Category
-from shop.customers.models import CustomerOrder,reqpart,Battery,feedback
+from shop.customers.models import CustomerOrder,reqpart,Battery,feedback,seller
 from datetime import date
 from datetime import datetime
 from datetime import timedelta
@@ -22,6 +22,7 @@ def home():
 @app.route('/adminorders')
 
 
+
 def orders_admin():
     products=Addproduct.query.all()
     orders=CustomerOrder.query.order_by(CustomerOrder.id).all()
@@ -33,6 +34,10 @@ def parts_request():
     req=reqpart.query.order_by(reqpart.id).all()
     return render_template('admin/parts_request.html',title="partreq",req=req)
 
+@app.route('/seller_request')
+def seller_request():
+    s_req=seller.query.order_by(seller.id).all()
+    return render_template('admin/seller_request.html',title="seller",s_req=s_req)
 
 @app.route('/feedbackuser')
 def feedback_user():

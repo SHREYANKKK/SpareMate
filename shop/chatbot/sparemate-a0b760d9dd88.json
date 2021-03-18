@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "sparemate",
+  "private_key_id": "a0b760d9dd8853b343a808c1639ba0007559eed2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCiKhwJf+lEYoae\nnE1gb4wm/6cj3x5XpJwxS2hEabwWQxrBUL3Vbca+poTkwyqlagpdnbSX7FF/+qPF\nrLAGbyBBXk424FslzsZ0Td6sB+P1LDuVgu9jVV0av98zw2iKG9+TpLG5XEmU0JLE\nwwK9NzrZmYz8m/Dj0SfBDIX4p0DHJ2aRLETVghbIRT8swW8byC+6DZ7iNyFApbSd\nuoXONxnEWLRbhPZssKxLqVCXDOlfjlftLlrhnyaz9Sn4a/R1u9QAcrtMp+WHF+2J\nfrxz5LNY6YXTRVcU7GLBrvxvRVUOelaEeyNv1NbmK7rvD2lCgTWrlWrY8JtBjYjJ\nT3LJGJPzAgMBAAECggEAGh9IZutY6zAn2VL6T+eIHxwdk3S0kY+trW8lO6gAqWFj\n5PIZslC9rCZsz+D0dLLxOoVV+wcRVdlNGmGn9VFfU8haNxLK+/skEsYccX/P48Wd\nT4dJAqpUliOEU/VNWLoGuOTV0DMikztJ+TIktdA4xaarhGGmWzxs9/cJebWPhMT9\nLWJbdMb6leaTocux0ISSsbQvGZjWObQJRkTdTrUSXP+OM3JcepHFsVnQWwS82hOs\noJ1UKtZ5bH43O3qH85IZaYp4s1Msfy7TuIt9Q4hO0rliT+xOLG+an+9q/MBSVkWp\nULX9gyKfcVHFAjXypz+Bex+L+mRxVlFe6Rm+lNqXwQKBgQDdWZGsWaKi5G4/Zf6G\na4pzJpgvfo7RSTWVSs3hEsuHRZDiJpDyDUoSIKqyjE8EA7Xpuxt3FfSiPiqv9KV+\nRVz15s+ljoLzQGtFo8N9jjU98cedcLqnOg4ZEmre+CNgbEkOWWtEMLli5ZiHrxUq\nhwtX2N/0hPxlM2TkKu628SFiYQKBgQC7jLrytloGMGQXzGdN8svO5trmJLtmoGad\n/rQB4lTGs8qhE+NDOoLxfJsCH3kBvCakQ7p1NvQn/49dC1KQU8X539RaiwFs66J5\nNVxvfgerQoLOn+0QZdKATiWDrA+3zUiYcttXtsxvUtLSi0wEXALiAMHyunhHi3x9\n21lYbmE+0wKBgQDaBedeg8uV9rpA6A2UCUkNsu4jmdzCeAG3Uz8GeqTOUM8sciBC\nyqQyxspbo6gQpDcCSbH70jxrsiAJwEdh4KB39SiCQaTqRIFkzrE3cmMu6H9drDOt\nk5lfSKzLgk4WI5Kx95GYUQXJS6y5uNJ4WRvrI0s0ZejVJZIyy7blqwzfAQKBgQCB\nUPPGTr2b7tnVHvdL49Frg/oDHeipRof7AJgVhH131JguoIve2wVWhNhMim7hJ15t\nfNWf5JhMzAWJ3ji7k0e6lv7Qv2/oLkEE2io2JewbxexzlAndeJfAKCHtvEHKNh2M\nIAXlYQFs8Oq0iZ+MkfTa6DLSrogorKDWFtxwAQvESQKBgQDVW50vMH2szvTRBllX\nSWLPMrGZg/+kWMhL+j7QlBPIt0N8yJ5aMMlgE44bJUu5UFcks5w2ukWPTwKKec4n\nvV+ceUq4r92y4m3ZnJ8GxAjqlMekDEWSVhBXxYC4q52k+Jmw/XVyJDDBlDFIT5NJ\nDtJ/z5/S9ocklAp7HHD6IA1cfg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "sparemate@sparemate.iam.gserviceaccount.com",
+  "client_id": "106514756381921587058",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sparemate%40sparemate.iam.gserviceaccount.com"
+}

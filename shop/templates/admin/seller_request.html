@@ -1,0 +1,163 @@
+
+ {% extends 'layout_admin.html'%}
+ {%block content %}
+ {% include '_messages.html'%}
+ <head>
+    <style>
+    
+    @media 
+    only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px)  {
+    
+        /* Force table to not be like tables anymore */
+        table, thead, tbody, th, td, tr { 
+            display: block; 
+        }
+        
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr { 
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+        
+        tr { border: 1px solid #ccc;border-radius: 10px;}
+        
+        td { 
+            /* Behave  like a "row" */
+            border: none;
+            border-bottom: 1px solid #eee; 
+            position:relative;
+            text-align: center;
+            margin-left: 0px;
+        }
+        
+        td:before { 
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: 6px;
+            left: 6px;
+            width: 45%; 
+            padding-right: 10px; 
+            white-space: nowrap;
+        }
+        
+        /*
+        Label the data
+        */
+        td:nth-of-type(1):before { content: "SerialNo"; color:white; }
+        td:nth-of-type(2):before { content: "Customer_name"; color:white;}
+        td:nth-of-type(3):before { content: "Customer_phone"; color:white;}
+        td:nth-of-type(4):before { content: "Customer_email"; color:white;}
+        td:nth-of-type(5):before { content: "Part";color:white;}
+        td:nth-of-type(6):before { content: "Vehicle_brand"; color:white;}
+        td:nth-of-type(6):before { content: "Vehicle_brand"; color:white;}
+
+        
+    }
+    </style>
+     </head>
+ <br>
+    <div class="container"style="background-color:#0f0f0f;border-radius: 30px;">
+    </div>
+    <div class="container">
+        <h5 align="center">
+            <font size="5px">
+                <br>
+                <font color="white"><font size="20px">Seller requests</h5></font>
+        </font>
+        <hr>
+        <table class="table table-sm">
+            <thead>
+                <th>
+                    <font color="white">serialNo.</th>
+                </font>
+                <th>
+                    <font color="white">seller_name</th>
+                </font>
+                <th>
+                    <font color="white">seller_phone</th>
+                </font>
+                <th>
+                    <font color="white">seller_email</th>
+                </font>
+                <th>
+                    <font color="white">shop_name</th>
+                </font>
+                <th>
+                    <font color="white">shop_addr</th>
+                </font>
+                <th>
+                    <font color="white">services_provided</th>
+                </font>
+                <th>
+                    <font color="white">years_service</th>
+                </font>
+                <th>
+                    <font color="white">install_service</th>
+                </font>
+                <th>
+                    <font color="white">online shop</th>
+                </font>
+                <th>
+                    <font color="white">estimated_budget</th>
+                </font>
+                <th> 
+            </thead>
+            <tbody>
+
+            {% for r in s_req %}
+            <tr>
+                <td>
+                    <font color="white">{{loop.index}}</td>
+                </font>
+                <td>
+                    <font color="white">{{r.seller_name}}</td>
+                </font>
+                <td>
+                    <font color="white">{{r.seller_phone}}</td>
+                </font>
+                <td>
+                    <font color="white">{{r.seller_email}}</td>
+                </font>
+                <td>
+                    <font color="white">{{r.shop_name}}</td>
+                </font>
+                <td>
+                    <font color="white">{{r.shop_addr}}</td>
+                </font>
+                <td>
+
+                        <font color="white">{{r.services_provided}}</td>
+                    </font>
+                    <td>
+
+                        <font color="white">{{r.years_service}}</td>
+                    </font>
+                    <td>
+
+                        <font color="white">{{r.in_ser}}</td>
+                    </font>
+                    <td>
+
+                        <font color="white">{{r.onl_pre}}</td>
+                    </font>
+                    <td>
+
+                        <font color="white">{{r.est_budget}}</td>
+                    </font>
+                    <td>
+                
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="footer-copyright text-center py-3">
+        <font family="roboto">
+            <font color="white">© 2020 Copyright:</font>
+            <a href="{{url_for('admin')}}"> SpareMate.com</a>
+</body>
+
+{% endblock%}

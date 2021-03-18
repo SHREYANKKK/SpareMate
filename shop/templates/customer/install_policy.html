@@ -3,14 +3,24 @@
 {% include '_messages.html'%}
 <head>
 <style>
-  .how{
-    display: table;
-margin-left: auto;
-    margin-right:auto;
-    margin-top: 50;
-    
-    
-  }
+    h2,h3{
+        color:#e5e4e2;
+
+    }
+    .info{
+
+      display: table;
+      margin-left: auto;
+      margin-right: auto;
+        
+    }
+    h1{
+        color:#91091e;
+    }
+    p{
+        color:#e5e4e2;
+    }
+  
   .qoute1{
   font-size:40px;
   color:#91091e;
@@ -28,7 +38,7 @@ margin-left: auto;
 margin-left: auto;
 
     margin-right:auto;
-    margin-top: 100px;
+    margin-top: 150px;
     
     
   }
@@ -65,7 +75,19 @@ margin-left: auto;
   .navbar .nav-item .dropdown-menu{ display: none; }
   .navbar .nav-item:hover .dropdown-menu{ display: block; }
  
- 
+  .welcome{
+  background-image: url('/static/op.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 500px 500px;
+  width: 100%;
+  height:100%;
+  padding-top:500px;
+  display: table;
+  margin-left: auto;
+  margin-right:auto;
+  }
+  
   .hero{
     font-size:100px;
     margin-top: 200px;
@@ -135,6 +157,27 @@ margin-left: auto;
   }
 
   @media only screen and (max-width: 600px) {
+
+    .qoute1{
+
+      font-size: 6vw;
+      margin-left: auto;
+      margin-right: auto;
+      display: table;
+    }
+
+.info{
+
+
+  max-width: 80%;
+}
+
+
+
+
+
+
+
     .card{
     border: 2px solid #F5F5F5;
     border-radius: 40px;
@@ -175,7 +218,7 @@ margin-left: auto;
 
   }
   .hero{
-    font-size:100px;
+    font-size:10vw;
     margin-top: 80px;
     font-family: Corbert Condensed Italic;
     color:#e5e4e2 ;
@@ -250,31 +293,32 @@ a:link {
 
 
 <!--header-->
-<div class="welcome">
-<br>
-<br>
-<br>
-<br>
 
+
+<br>
+<br>
 <h1 align="center" class="hero">SpareMate Installation Policy</font></h1>
-<div class="how">
+<br>
+<br>
+<div class="info">
+  
 
+  <ul color="red">
+    <h3 class="qoute1"><b>Installation Policy</h3></font></b>
     <br>
-    <br>
-    <ul color="red">
-      <h3 class="qoute1"><b>Installation Policy</h3></font></b>
-      <br>
-      <li>1.The products where"Installation" is mentioned,are eligible for installation scheme </li>
-      <li>2.Installation within radius of 5KM are free.If the limit is extended extra amount will be charged</li>
-      <li>3.Customer has to request for installation service by filling a <a href="{{url_for('install_services')}}">form</a> where they have to mention details like bill no. etc.</li>
-      <li>4.The installation will be done after 24 to 48 hours of request.</li>
-      <li>5.The installation time is from <b><font color="#91091e">9AM to 9PM</font>.</b></li>
-    </ul>
-    </div>
+    <li>1.The products where"Installation" is mentioned,are eligible for installation scheme </li>
+    <li>2.Installation within radius of 5KM are free.If the limit is extended extra amount will be charged</li>
+    <li>3.Customer has to request for installation service by filling a <a href="{{url_for('install_services')}}">form</a> where they have to mention details like bill no. etc.</li>
+    <li>4.The installation will be done after 24 to 48 hours of request.</li>
+    <li>5.The installation time is from <b><font color="#91091e">9AM to 9PM</font>.</b></li>
+  </ul>
+  </div>
 </div>
-<br>
-<br>
-<br>
+
+
+
+
+
 
 </div>
 <hr color="white" style="opacity: 0.9;">  
