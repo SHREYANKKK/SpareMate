@@ -4,26 +4,6 @@
 <br>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-    body{
-        font-family:Georgia, 'Times New Roman', Times, serif;
-    }
-    div.scrollmenu {
-  background-color: black;
-  overflow: auto;
-  white-space: nowrap;
-}
-
-div.scrollmenu a {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px;
-  text-decoration: none;
-}
-
-div.scrollmenu a:hover {
-  background-color: #777;
-}
     .card{
     border: 1px solid #F5F5F5;
     border-radius: 20px;
@@ -113,12 +93,8 @@ div.scrollmenu a:hover {
     }
 
     @media only screen and (max-width: 600px) {
-
-        body{
-            font-family:Georgia, 'Times New Roman', Times, serif;
-        }
         .product_name {
-            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-family: Arial, Helvetica, sans-serif;
             font-size: 30px;
             color: #e8e8e8;
 
@@ -174,12 +150,10 @@ div.scrollmenu a:hover {
             </div>
         </div>
         <div class="col-md-6">
-            <br>
-            <br>
             {% include '_messages.html'%}
-            <h1 class="product_name"><b>{{product.name}}</h1></b><br>
-            <b>Product Rating</b><p><h2><font color="white">{{product_revi.rating}}/5</p></h2></font>
-
+            <br>
+            <br>
+            <h1 class="product_name"><b>{{product.name}}</h1></b>
             <hr>
             <p class="pr">&#8377; {{product.price}}</p>
             <p><b>Product origin:</b> {{product.origin}}</p>
@@ -268,27 +242,6 @@ div.scrollmenu a:hover {
             <br>
             <button type="submit" class="btn btn-light">Add Review</button>
         </form>
-     <br>
-     <br>
-     <br>
-
-
-     
-     <div class="scrollmenu">
-
-
-        <b>Product Reviews </b>
-        
-    
-
-     
-        <p>{{product_revi.review}}</p>
-
-      </div>
-      
-    
-       
-
         </div>
     </div>
     <div class="row_image">

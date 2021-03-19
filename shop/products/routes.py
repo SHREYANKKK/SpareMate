@@ -26,10 +26,11 @@ def result():
 
     return render_template('products/result.html',products=products,searchword=searchword)
     
+
+
 @app.route("/product/<int:id>")
 def single_page(id):
-    reviews_r=Review.query.order_by(Review.id).all()
-    product_revi=Review.query.get_or_404(id)
+
     product=Addproduct.query.get_or_404(id)
     search = product.category.name
     reviews=Review.query.filter_by(category=search).order_by(Review.rating.desc()).all()
@@ -42,7 +43,8 @@ def single_page(id):
     )
     brands= Brand.query.join(Addproduct,(Brand.id==Addproduct.brand_id)).all()
     categories=Category.query.join(Addproduct,(Category.id==Addproduct.category_id)).all()
-    return render_template('products/single_page.html',product=product,brands=brands,categories=categories,results = result, product_revi= product_revi, reviews_r= reviews_r)
+    return render_template('products/single_page.html',product=product,brands=brands,categories=categories,results = result)
+
 
 
 
