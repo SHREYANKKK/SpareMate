@@ -50,7 +50,7 @@
                     <font color="#e5e4e2"> {{ render_field(form.email,class="form-control",placeholder="Email")}}</font>
                         <font color="#e5e4e2">{{ render_field(form.password, class="form-control",placeholder="Password")}}</font>
                             <font color="#e5e4e2">{{ render_field(form.confirm ,class="form-control",placeholder="Confrim Password")}}</font>
-                                <font color="#e5e4e2"> {{ form.profile() }}</font>
+             
             </div>
             <div class="col-md-4">
                 <font color="#e5e4e2">  {{ render_field(form.country,class="form-control",placeholder="Country")}}</font>
@@ -66,7 +66,7 @@
         <br>
         <br>
         <div class="sbtn">
-            <font color="#e5e4e2">{{ form.submit(class="btn btn-dark btn-lg") }}</font> &nbsp;<a href="{{url_for('customerLogin')}}"class="btn btn-dark btn-lg">Login</a>
+            <font color="#e5e4e2">{{ form.submit(class="btn btn-dark btn-lg") }}</font> &nbsp;<a href="{{url_for('customerLogin')}}"class="btn btn-light btn-lg">Login</a>
             <br>
             <br>
  

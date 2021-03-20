@@ -1,6 +1,15 @@
 {% extends 'layout.html' %}
 {% block body %}
 <style>
+   .resulttext{
+      display: table;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 2.5vw;
+    }
+  .search-media{
+    display: none;
+  }
     .hr1{
       opacity:  0.9;
     }
@@ -24,7 +33,7 @@
     .hero{
       font-size:210px;
       margin-top: 60px;
-      font-family: Corbert Condensed Italic;
+
       color:#e5e4e2 ;
       text-align: center;
    
@@ -66,49 +75,53 @@
     top: auto;
   
    }
+
+   .card {
+            border: 1px solid #F5F5F5;
+            border-radius: 30px;
+            height: 100%;
+            width: 100%;
+            background-color: black;
+        }
     
-    .card{
-      border: 1px solid #F5F5F5;
-      border-radius: 50px;
-      height:100%;
-      width:100%;
-      background-color:#0f0f0f;
-  
-  
-    }
-    .card-body{
-      color:#e5e4e2;
-    }
-  
-    .card-img-top{
-      border-radius: 50px;
-      height: 50%;
-      width:90%;
-    }
+   .card-body {
+            color: #e5e4e2;
+        }
+        
+        .card-img-top {
+            border-radius: 30px;
+            height: 50%;
+            max-width: 100%
+        }
+        
+      
   
     @media only screen and (max-width: 600px) {
-      .card{
-      border: 2px solid #F5F5F5;
-      border-radius: 50px;
-      height:100%;
-      width:70%;
-      background-color:black;
-      display: flex;
-    margin-left: auto;
-    margin-right: auto;
-  
-  
-    }
-    .card-body{
-      color:#e5e4e2;
-    }
-  
-    .card-img-top{
-      border-radius: 50px;
-      height: 50%;
-      width:90%;
-      display: flex;
-    }
+
+
+      .card {
+                border: 2px solid #F5F5F5;
+                border-radius: 40px;
+                height: 100%;
+                width: 70%;
+                background-color: black;
+                display: flex;
+                margin-left: auto;
+                margin-right: auto;
+            }
+   
+    .card-body {
+            color: #e5e4e2;
+        }
+        
+        .card-img-top {
+                border-radius: 40px;
+                height: 50%;
+                display: flex;
+                max-width: 100%
+            }
+        
+       
   
     .welcome{
     background-image: url('/static/17.png');
@@ -124,7 +137,7 @@
     .hero{
       font-size:100px;
       margin-top: 60px;
-      font-family: Corbert Condensed Italic;
+      font-family: Georgia, 'Times New Roman', Times, serif;
       color:#e5e4e2 ;
       text-align: center;
     margin-left: auto;
@@ -200,13 +213,44 @@
   
        
   }
+   
+  @media only screen and (max-width: 600px) {
+    .resulttext{
+      display: table;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 4vw;
+    }
+
+    .search-media {
+                display: table;
+                max-width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        .searchbar{
+          display: none;
+        }
+  }
+
+
   </style>
+  
+</div>
   <br>
   <br>
   <br>
+  <div class="search-media">
+
+    <form class="form-inline my-2 my-lg-0" action="{{url_for('result')}}">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
+        <button class="btn btn-dark my-3 my-sm-1 " type="submit">Search</button>
+    </form>
+  </div>
   <br>
   <br>
-  <h1 class="text-center"><font color="#e5e4e2">Search results for {{searchword}}</h1></font>
+  <h1 class="resulttext"><font color="#e5e4e2">Showing search results for {{searchword}}</h1></font>
 
 
   <br>
@@ -217,14 +261,12 @@
         <div class="card">
             <img src="{{url_for('static', filename='images/' + product.image_1)}}" class="card-img-top" alt="{{product.name}}" height="200" width="200">
             <div class="card-body">
-                {% if product.discount > 0 %}
-                <h5 style="text-shadow: 1px 2px 2px #000; color: #f00; transform: rotate(-15deg); position: absolute; top: 23%; left: 25%; font-weight: 600;"> Discount {{product.discount}}</h5>
-                {% endif %}
+               
               <h5 class="text-center">{{product.name}}</h5>
-              <p class="text-center">Price ${{product.price}}</p>
+              <p class="text-center">Rs.{{product.price}}</p>
             </div>
             <div class="card-footer">
-                <a href="{{url_for('single_page',id=product.id)}}" class="float-left btn btn-sm btn-light">Details</a>
+               <font color="black"><a href="{{url_for('single_page',id=product.id)}}" class="float-left btn btn-sm btn-light">Details</a></font>
                 <form action="{{url_for('AddCart')}}" method="post">
                   <input type="hidden" name="product_id" value="{{product.id}}">
                   <button type="submit" class="btn btn-dark float-right"><font color="#e5e4e2">Add to cart</button></font>
