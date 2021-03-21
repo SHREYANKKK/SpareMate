@@ -67,11 +67,7 @@ margin-left: auto;
     .hr1{
     opacity:  0.9;
   }
-  .dropdown-item:hover {
-            background-color: #3D3D3D;
-            color: #e5e4e2;
-        }
-     
+ 
   .navbar .nav-item .dropdown-menu{ display: none; }
   .navbar .nav-item:hover .dropdown-menu{ display: block; }
  
@@ -158,9 +154,20 @@ margin-left: auto;
 
   @media only screen and (max-width: 600px) {
 
+
+
+  .l11 {
+    list-style-type: none;
+    font-size: 2vw;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+
     .qoute1{
 
-      font-size: 6vw;
+      font-size: 5vw;
       margin-left: auto;
       margin-right: auto;
       display: table;
@@ -222,7 +229,10 @@ margin-left: auto;
     margin-top: 80px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color:#e5e4e2 ;
-    text-align: center;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+  
  
   }
 
@@ -230,6 +240,7 @@ margin-left: auto;
 
   li {
     list-style-type: none;
+
 }
 
 .btn {
@@ -306,11 +317,11 @@ a:link {
   <ul color="red">
     <h3 class="qoute1"><b>Installation Policy</h3></font></b>
     <br>
-    <li>1.The products where"Installation" is mentioned,are eligible for installation scheme </li>
-    <li>2.Installation within radius of 5KM are free.If the limit is extended extra amount will be charged</li>
-    <li>3.Customer has to request for installation service by filling a <a href="{{url_for('install_services')}}">form</a> where they have to mention details like bill no. etc.</li>
-    <li>4.The installation will be done after 24 to 48 hours of request.</li>
-    <li>5.The installation time is from <b><font color="#91091e">9AM to 9PM</font>.</b></li>
+    <li class="l1">1.The products where"Installation" is mentioned,are eligible for installation scheme </li>
+    <li class='l1'>2.Installation within radius of 5KM are free.If the limit is extended extra amount will be charged</li>
+    <li class='l1'>3.Customer has to request for installation service by filling a <a href="{{url_for('install_services')}}">form</a> where they have to mention details like bill no. etc.</li>
+    <li class=l1>4.The installation will be done after 24 to 48 hours of request.</li>
+    <li class=l1>5.The installation time is from <b><font color="#91091e">9AM to 9PM</font>.</b></li>
   </ul>
   </div>
 </div>

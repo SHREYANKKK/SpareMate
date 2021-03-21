@@ -4,6 +4,10 @@
 <br>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+
+    .ct-mobile{
+        display: none;
+    }
     .card{
     border: 1px solid #F5F5F5;
     border-radius: 20px;
@@ -36,10 +40,7 @@
         top: 10px;
     }
 
-    .dropdown-item:hover {
-        background-color: #3D3D3D;
-        color: black;
-    }
+   
 
     .navbar .nav-item .dropdown-menu {
         display: none;
@@ -93,6 +94,17 @@
     }
 
     @media only screen and (max-width: 600px) {
+
+
+ 
+
+
+
+.content{
+    padding-left: 20px;
+}
+
+
         .product_name {
             font-family:Georgia, 'Times New Roman', Times, serif;
             font-size: 30px;
@@ -140,7 +152,14 @@
         margin-right: auto;
     }
 </style>
-<div class="container mt-5">
+
+<div class="ct-mobile1">
+
+    <a href="{{url_for('getCart')}}" class="nav-link">
+        <font color="white"><i style="font-size:3vw" class="fa">&#xf07a;({{session['Shoppingcart']|length }}) </a></i>
+        </font>
+</div>
+
     <div class="row">
 
         <div class="col-md-6" id="b_image">
@@ -149,6 +168,7 @@
                     height="500">
             </div>
         </div>
+        <div class="content">
         <div class="col-md-6">
             {% include '_messages.html'%}
             <br>
@@ -244,6 +264,8 @@
         </form>
         </div>
     </div>
+
+</div>
     <div class="row_image">
         <div class="col-md-12 mt-3" id="s_image">
 

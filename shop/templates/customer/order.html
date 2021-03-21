@@ -131,6 +131,14 @@
 th,td{
     color:#e5e4e2;
 }
+
+
+
+@media only screen and (max-width: 600px) {
+
+  
+
+}
 </style>
 <div class="container mt-4">
     {% include '_messages.html' %}
@@ -161,6 +169,7 @@ th,td{
             <font color="white"> Customer Address: {{customer.address}}</font>
             <br>
             <br>
+     
         <table class="table table-sm">
             <thead>
                 <th>Sr</th>
@@ -196,10 +205,12 @@ th,td{
                 {% endfor %}
             </tbody>
         </table>
+   
       <h3 align="right"><font color="white"><font align="right">Grand Total: &#8377; {{grandTotal}}</font> </h3>
       <br>
     </div>
   </div>
+
   <br>
   <br>
 
