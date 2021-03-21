@@ -35,11 +35,13 @@ def parts_request():
     return render_template('admin/parts_request.html',title="partreq",req=req)
 
 @app.route('/seller_request')
+
 def seller_request():
     s_req=seller.query.order_by(seller.id).all()
     return render_template('admin/seller_request.html',title="seller",s_req=s_req)
 
 @app.route('/feedbackuser')
+
 def feedback_user():
     feed=feedback.query.order_by(feedback.id).all()
     return render_template('admin/feed.html',title="feed",feed=feed)
@@ -47,6 +49,7 @@ def feedback_user():
 
 
 @app.route('/batt')
+
 def bat_request():
     bt=Battery.query.order_by(Battery.id).all()
     return render_template('admin/bat.html',title="batreq",bt=bt)
@@ -82,7 +85,9 @@ def admin():
 
 
 @app.route('/brands')
+
 def brands():
+    
     if 'email' not in session:
         flash(f'Please login first','danger')
         return redirect(url_for('login'))
@@ -90,6 +95,7 @@ def brands():
     return render_template('admin/brand.html',title="Brand page",brands=brands)
 
 @app.route('/category')
+
 def category():
     if 'email' not in session:
         flash(f'Please login first','danger')
@@ -143,14 +149,14 @@ def login():
         if user and brcypt.check_password_hash(user.password,form.password.data):
             session['email']=form.email.data
             session.permanent = True
-            #server= smtplib.SMTP("smtp.gmail.com",587)
-            #server.starttls()
-            #server.login("Sparematenoreply@gmail.com","Sparemate@123")
-            #today = date.today()
-           # now = datetime.now()
-            #message=f'Admin login activity detected\n\nDetected Email:{form.email.data}\n\nLast login date:{today}\n\nLast login time:{now}\n\n\nThank You\nSpareMate login detection system\n\nAuto generated email,do not reply.'
-           # emails=['androgeek123@gmail.com',form.email.data,'skarjigi98@gmail.com']
-            #server.sendmail("Sparematenoreply@gmail.com",emails,message)
+            server= smtplib.SMTP("smtp.gmail.com",587)
+            server.starttls()
+            server.login("Sparematenoreply@gmail.com","Sparemate@123")
+            today = date.today()
+            now = datetime.now()
+            message=f'Admin login activity detected\n\nDetected Email:{form.email.data}\n\nLast login date:{today}\n\nLast login time:{now}\n\n\nThank You\nSpareMate login detection system\n\nAuto generated email,do not reply.'
+            emails=['androgeek123@gmail.com',form.email.data,'skarjigi98@gmail.com']
+            server.sendmail("Sparematenoreply@gmail.com",emails,message)
             flash(f'Welcome {form.email.data}','success')
             return redirect(request.args.get('next') or url_for('admin'))
         else:

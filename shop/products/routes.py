@@ -8,6 +8,7 @@ from sqlalchemy.sql import exists
 from sqlalchemy.exc import IntegrityError
 
 
+
 @app.route("/product_page")
 def product_page():
     page=request.args.get('page',1,type=int)
@@ -103,6 +104,16 @@ def addbrand():
         getbrand=request.form.get('brand')
         brand=Brand(name=getbrand)
         db.session.add(brand)
+
+        
+
+
+
+
+
+
+
+
         flash(f'The brand {getbrand} was added to your database','success')
         db.session.commit()
         return redirect(url_for('addcat'))
