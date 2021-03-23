@@ -1,11 +1,32 @@
 {% extends 'layout.html' %}
 {% block body %}
+{% include '_messages.html'%}
 <head>
 <style>
   .form_text{
-  text-align: center;
-  font-size: 2vw;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1vw;
   }
+    h2,h3{
+        color:#e5e4e2;
+
+    }
+    .info{
+
+      display: table;
+      margin-left: auto;
+      margin-right: auto;
+        
+    }
+    h1{
+        color:#91091e;
+    }
+    p{
+        color:#e5e4e2;
+    }
+  
   .qoute1{
   font-size:40px;
   color:#91091e;
@@ -20,10 +41,10 @@
   }
   .how{
     display: table;
-    margin-left: auto;
+margin-left: auto;
+
     margin-right:auto;
-    margin-top: 120px;
-    max-width: 80%;
+    margin-top: 150px;
     
     
   }
@@ -44,12 +65,15 @@ margin-left: auto;
     text-align: center;
     color: #e5e4e2 ;
   }
+
+
+
+  
   
     .hr1{
     opacity:  0.9;
   }
  
-     
   .navbar .nav-item .dropdown-menu{ display: none; }
   .navbar .nav-item:hover .dropdown-menu{ display: block; }
  
@@ -57,22 +81,30 @@ margin-left: auto;
   background-image: url('/static/11.png');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: auto;
+  background-size: 500px 500px;
   width: 100%;
   height:100%;
   padding-top:500px;
+  display: table;
+  margin-left: auto;
+  margin-right:auto;
   }
   
   .hero{
     font-size:100px;
-    margin-top: 60px;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin-top: 200px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color:#e5e4e2 ;
     text-align: center;
-    margin-top: 120px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
  
   }
- 
+  .main{
+    font-size: 90px;
+    color: #c5a880;
+  }
   .content{
   height: 400px;
   width: 600px;
@@ -107,68 +139,124 @@ margin-left: auto;
 
  }
   
+  .card{
+    border: 1px solid #F5F5F5;
+    border-radius: 30px;
+    height:100%;
+    width:100%;
+    background-color:#0f0f0f;
+
+
+  }
+  .card-body{
+    color:#e5e4e2;
+  }
+
+  .card-img-top{
+    border-radius: 30px;
+    height: 50%;
+    width:90%;
+  }
+
   @media only screen and (max-width: 600px) {
-
-    .form_batt{
-        display: table;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 80%;
-    }
-
-    .search-media {
-                display: table;
-                max-width: 80%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-    .qoute{
-  display: block;
-  font-size: 3vw;
-  margin-left: auto;
-  margin-right: auto;
-  }
- 
-  
-  .welcome{
-  background-image: url('/static/11.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  max-width: 100%;
-  height:100%;
-  margin-top:0px;
-
-
+    .form_text{
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2.5vw;
   }
 
-.qoute1{
-  display:table;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 4vw;
-}
-.form_text{
-  text-align: center;
-  font-size: 2.9vw;
 
-}
-
-.hero{
-    font-size:8vw;
-    margin-top: 120px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color:#e5e4e2 ;
-    text-align: center;
- 
-  }
-
-  }
 
   .l1 {
     list-style-type: none;
     font-size: 3vw;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+
+    .qoute1{
+
+      font-size: 5vw;
+      margin-left: auto;
+      margin-right: auto;
+      display: table;
+    }
+
+.info{
+
+
+  max-width: 80%;
+}
+
+
+
+
+
+
+
+    .card{
+    border: 2px solid #F5F5F5;
+    border-radius: 40px;
+    height:100%;
+    width:70%;
+    background-color:black;
+    display: flex;
+  margin-left: auto;
+  margin-right: auto;
+
+
+  }
+  
+  .qoute{
+  display:table;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 3vw;
+  
+  }
+ 
+  .card-body{
+    color:#e5e4e2;
+  }
+
+  .card-img-top{
+    border-radius: 40px;
+    height: 50%;
+    width:90%;
+    display: flex;
+  }
+
+  .welcome{
+  background-image: url('/static/op.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+  width: 100%;
+  height:100%;
+  padding-top:120px;
+  display: flex;
+
+  }
+  .hero{
+    font-size:10vw;
+    margin-top: 80px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:#e5e4e2 ;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+  
+ 
+  }
+
+  }
+
+  li {
+    list-style-type: none;
+
 }
 
 .btn {
@@ -181,7 +269,7 @@ margin-left: auto;
 
 
 .heroContents {
-	padding-bottom: 45px;
+	padding-bottom: 35px;
 	text-align: center;
 	color: #e5e4e2;
   width: 100%;
@@ -201,10 +289,16 @@ a:link {
   color:#e5e4e2;
 }
 
-
+ 
+  
+  
+  a{
+    color:#4d375d
+  }
+  
     .heading{
     
-    
+       
         font-size: 120px;
         color: #f6f6f6
         
@@ -220,68 +314,75 @@ a:link {
 
      
 }
-}
-
 </style>
 </head>
 <body>
- 
+
+
 <!--header-->
 
-<div class="welcome">
-<h1 align="center" class="hero"> SpareMate Battery Exchange</font></h1>
-<br>
-<h3 align="center"class="qoute"><font color="#e5e4e2">Exchange your old battery for upto 10% off on new one</h3></font>
-</div>
 
-<div class="how">
-<ul color="red">
-  <h3 class="qoute1"><b>How to tell when it's time to change your vehicle battery</h3></font></b>
-  <br>
-  <li class="l1">Either the engine takes time to start or doesn’t even start. The battery is not able to produce ample power to start the engine.</li>
-  <li class="l1">While turning the ignition the dash light either flicker or are dim than usual.</li>
-  <li class="l1">The engine suddenly turns off while operating the power windows or the windows operate at a much slower pace than normal.</li>
-  <li class="l1">Another sign you may notice is dim dash lights when the engine is idle and as you rev the engine they get brighter.</li>
-  <li class="l1">A lot of corrosion or oxidation on the battery terminals is also a major sign to make out that the car battery is getting low.</li>
-  <li class="l1">Modern cars come equip with a battery warning light which lights up when the battery is low.</li>
-</ul>
+<br>
+<br>
+<h1 align="center" class="hero">SpareMate Battery Exchange</font></h1>
+<br>
+<h3 align="center"class="qoute"><font color="#84142d">Exchange your old battery for upto 10% off on new one</h3></font>
+<br>
+<h4 align="center"></font></h4>
+<div class="info">
+  
+
+  <ul color="red">
+    <h3 class="qoute1"><b></h3></font></b>
+    <br>
+    <li class="l1">1.Either the engine takes time to start or doesn’t even start. The battery is not able to produce ample power to start the engine.</li>
+    <li class="l1">2.While turning the ignition the dash light either flicker or are dim than usual.</li>
+    <li class="l1">3.The engine suddenly turns off while operating the power windows or the windows operate at a much slower pace than normal.</li>
+    <li class="l1">4.Another sign you may notice is dim dash lights when the engine is idle and as you rev the engine they get brighter.</li>
+    <li class="l1">5.A lot of corrosion or oxidation on the battery terminals is also a major sign to make out that the car battery is getting low.</li>
+    <li class="l1">6.Modern cars come equip with a battery warning light which lights up when the battery is low.</li>
+
+  </ul>
+  </div>
 </div>
 <br>
 <br>
 <br>
 <br>
-<br>
-<br>
-<!--header ends-->
 <h3 class="form_text"><font color="white">Please fill the given form,our representative will contact you shortly</font>
-<h4 class="text-center"><font color="white"></h4></font>
-<br>
-<br>
+  <h4 class="text-center"><font color="white"></h4></font>
+  <br>
+  <br>
 <div class="form_batt">
 
-    <div class="col-md-3"></div>
-    {% from "_formhelpers.html" import render_field %}
-                <font color="#e5e4e2">{% include '_messages.html' %}</font>
-                <form method=post>
-                    {{form.csrf_token}}
-                <div>
-                    <font color="#e5e4e2"> {{ render_field(form.cust_name, class="form-control",placeholder="Customer name") }}</font>
-                        <font color="#e5e4e2"> {{ render_field(form.cust_email, class="form-control",placeholder="Email") }}</font>
-                        <font color="#e5e4e2"> {{ render_field(form.cust_phone, class="form-control",placeholder="Customer phone") }}</font>
-                        <font color="#e5e4e2"> {{ render_field(form.battery_brand, class="form-control",placeholder="Battery brand") }}</font>
-                        <font color="#e5e4e2"> {{ render_field(form.battery_type, class="form-control",placeholder="Battery type") }}</font>
-                        <font color="#e5e4e2"> {{ render_field(form.date_purchase, class="form-control",placeholder="Data of purchase")}}</font>
-                        <font color="#e5e4e2"> {{ render_field(form.battery_image, class="form-control",placeholder="Battery image") }}</font>
-                        <br>
-                        <br>
-                        <div class="sbtn">
-                          <font color="#e5e4e2"> {{ form.submit(class="btn btn-dark btn-lg") }}</font>
-                         </div> 
-                </div>
+  <div class="col-md-3"></div>
+  {% from "_formhelpers.html" import render_field %}
+              <font color="#e5e4e2">{% include '_messages.html' %}</font>
+              <form method=post>
+                  {{form.csrf_token}}
+              <div>
+                  <font color="#e5e4e2"> {{ render_field(form.cust_name, class="form-control",placeholder="Customer name") }}</font>
+                      <font color="#e5e4e2"> {{ render_field(form.cust_email, class="form-control",placeholder="Email") }}</font>
+                      <font color="#e5e4e2"> {{ render_field(form.cust_phone, class="form-control",placeholder="Customer phone") }}</font>
+                      <font color="#e5e4e2"> {{ render_field(form.battery_brand, class="form-control",placeholder="Battery brand") }}</font>
+                      <font color="#e5e4e2"> {{ render_field(form.battery_type, class="form-control",placeholder="Battery type") }}</font>
+                      <font color="#e5e4e2"> {{ render_field(form.date_purchase, class="form-control",placeholder="Data of purchase")}}</font>
+                      <font color="#e5e4e2"> {{ render_field(form.battery_image, class="form-control",placeholder="Battery image") }}</font>
+                      <br>
+                      <br>
+                      <div class="sbtn">
+                        <font color="#e5e4e2"> {{ form.submit(class="btn btn-dark btn-lg") }}</font>
+                       </div> 
+              </div>
 </div>
 </div>
-<hr color="white" class="hr1">  
-{% include '_messages.html'%}
+
+
+
+
+
+</div>
+<hr color="white" style="opacity: 0.9;">  
 <br>
 <br>
 <br>

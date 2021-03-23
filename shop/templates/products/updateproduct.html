@@ -35,7 +35,7 @@
         <form action="" method="POST" enctype="multipart/form-data">
             {{render_field(form.name,class="form-control",placeholder="Product name")}} {{render_field(form.price,class="form-control",placeholder="Product price")}} {{render_field(form.discount,class="form-control",placeholder="Product discount")}} {{render_field(form.stock,class="form-control",placeholder="Stock")}}
             {{render_field(form.origin,class="form-control",placeholder="Origin")}}{{render_field(form.condition,class="form-control",placeholder="Product condition")}}{{render_field(form.colors,class="form-control",placeholder="Product color")}} {{render_field(form.description,class="form-control",placeholder="Description",rows="10")}}
-            {{render_field(form.install_service,class="form-control",placeholder="Do you provide installation service",rows="2")}}
+            {{render_field(form.install_service,class="form-control",placeholder="Do you provide installation service",rows="2")}}{{render_field(form.yt,class="form-control",placeholder="Youtube video for installation(Leave blank if not available)",rows="2")}}
 
             <label for="brand"><font color="white">Add a brand</label></font>
 

@@ -249,6 +249,7 @@ def addproduct():
         discount=form.discount.data
         stock=form.stock.data
         origin=form.origin.data
+        yt=form.yt.data
         condition=form.condition.data
         description=form.description.data
         install_service=form.install_service.data
@@ -265,7 +266,7 @@ def addproduct():
             image_2=photos.save(request.files.get('image_2'),name=secrets.token_hex(10)+".")
             image_3=photos.save(request.files.get('image_3'),name=secrets.token_hex(10)+".")
             certificate=photos.save(request.files.get('certificate'),name=secrets.token_hex(10)+".")
-            addpro=Addproduct(name=name,price=price,discount=discount,stock=stock,origin=origin,condition=condition,description=description,install_service= install_service,colors=colors,brand_id=brand,category_id=category,image_1=image_1,image_2=image_2,image_3=image_3,certificate=certificate)
+            addpro=Addproduct(name=name,price=price,discount=discount,stock=stock,origin=origin,condition=condition,description=description,install_service= install_service,colors=colors,brand_id=brand,category_id=category,image_1=image_1,image_2=image_2,image_3=image_3,certificate=certificate,yt=yt)
             db.session.add(addpro)
             flash(f'The product {name} has been added to your database','success')
             db.session.commit()
@@ -302,6 +303,7 @@ def updateproduct(id):
         product.colors=form.colors.data
         product.brand_id=brand
         product.category_id=category
+        product.yt=form.yt.data
 
         if request.files.get('image_1'):
             try:
@@ -343,6 +345,7 @@ def updateproduct(id):
     form.description.data=product.description
     form.install_service.data=product.install_service
     form.colors.data=product.colors
+    form.yt.data=product.yt
     brand=request.form.get('brand')
     category=request.form.get('category')
     return render_template('products/updateproduct.html',form=form,brands=brands,categories=categories,product=product)

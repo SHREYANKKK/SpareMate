@@ -12,7 +12,7 @@ import os
 basedir=os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
 app.secret_key = 'eeeopopdopeppokakospkoapkaopap'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sparemate_scalingo1.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///final_db.db'
 db = SQLAlchemy(app)
 app.config['UPLOADED_PHOTOS_DEST']=os.path.join(basedir,'static/images')
 photos = UploadSet('photos', IMAGES)

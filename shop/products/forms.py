@@ -17,6 +17,7 @@ class Addproducts(Form):
     image_2 = FileField('', validators=[FileAllowed(['jpg','png','gif','jpeg'])])
     image_3 = FileField('', validators=[FileAllowed(['jpg','png','gif','jpeg'])])
     certificate = FileField('', validators=[FileAllowed(['jpg','png','gif','jpeg'])])
+    yt=StringField('')
 
     
 

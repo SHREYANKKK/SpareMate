@@ -1,4 +1,0 @@
-order_id,Invoice,status,customer_id,date_created,orders,,,,,,,,product_id
-1,3d3a7e2686,Pending,1,27:19.8,"{""1"": {""color"": ""ffff"""," ""colors"": ""ffff"""," ""discount"": 0"," ""image"": ""e7315a80e7bb0cd2341c.png"""," ""name"": ""test"""," ""price"": 3900.0"," ""quantity"": 1"," ""stock"": 10}}",1
-2,742e3f521d,Pending,2,29:45.8,"{""1"": {""color"": ""ffff"""," ""colors"": ""ffff"""," ""discount"": 0"," ""image"": ""e7315a80e7bb0cd2341c.png"""," ""name"": ""test"""," ""price"": 3900.0"," ""quantity"": 1"," ""stock"": 10}}",1
-3,d0b79763e8,Pending,2,30:53.8,"{""2"": {""color"": ""white"""," ""colors"": ""white"""," ""discount"": 0"," ""image"": ""3557a834838ab46ece97.png"""," ""name"": ""testt"""," ""price"": 853.0"," ""quantity"": 1"," ""stock"": 10}}",2

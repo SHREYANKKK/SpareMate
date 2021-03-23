@@ -21,6 +21,7 @@ class Addproduct(db.Model):
     image_2=db.Column(db.String(150),nullable=True,default='image.jpg')
     image_3=db.Column(db.String(150),nullable=True,default='image.jpg')
     certificate=db.Column(db.String(150),nullable=True)
+    yt= db.Column(db.String(100), nullable=True)
 
     def __repr__(self):
         return '<Addproduct %r>' % self.name
